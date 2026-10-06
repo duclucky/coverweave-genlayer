@@ -48,7 +48,10 @@ Address: `0xe4F0378799b47e7AE05F64d93dFE6590F68C5833`
 
 ## Live App
 
-Production hosting is pending. No hosted URL is claimed yet.
+[Open CoverWeave](https://coverweave-genlayer.vercel.app)
+
+Production is verified: HTTP 200, project title and React root, plus actual
+canonical agreement reads through the deployed same-origin API proxy.
 
 ## Verified evidence
 
@@ -57,13 +60,13 @@ Production hosting is pending. No hosted URL is claimed yet.
   CLOSED and zero liability/native balance. All accepted/finalized timestamps are
   server consensus timestamps; all source and transaction references are in the
   [safe journal](docs/evidence/studio-dev/deployment.json).
-- [Local verification](docs/LOCAL-VERIFICATION.md): 163 passing cases, zero skipped;
-  104 direct contract tests, seven Python tooling tests, 22 node tooling tests,
+- [Local verification](docs/LOCAL-VERIFICATION.md): 165 passing cases, zero skipped;
+  104 direct contract tests, eight Python tooling tests, 23 node tooling tests,
   one local five-validator integration case, 13 frontend adapter/wallet cases
   and 16 UI cases. GenVM lint recognizes one class and 17 methods; TypeScript
   and production build pass.
-- Chrome local frontend reads the actual archived agreement, its grants and
-  coverage through the same-origin proxy. This is browser **read** proof.
+- Chrome local and production frontends read the actual archived agreement, its
+  grants and coverage through the same-origin proxy. This is browser **read** proof.
   Actual browser-wallet **signing** remains pending; script signing is separate.
 - Public CI and external adoption remain pending.
 

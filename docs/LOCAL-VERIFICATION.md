@@ -28,17 +28,17 @@ Command: `npm run check`
 Observed final result: exit 0.
 
 ```text
-111 passed in 22.62s
-tooling node tests: 22 passed, 0 failed, 0 skipped
+112 passed in 22.73s
+tooling node tests: 23 passed, 0 failed, 0 skipped
 LOCAL ONLY: five simulated validators agree on the canonical coalition vector
-1 passed in 4.93s
+1 passed in 4.89s
 frontend node tests: 13 passed, 0 failed, 0 skipped
 frontend component tests: 16 passed
 tsc --noEmit: success
 Vite 8.3.3 production build: completed
 ```
 
-There are 163 executed local cases. Tests include deterministic settlement
+There are 165 executed local cases. Tests include deterministic settlement
 invariants, independent semantic replay, malformed/extra output, all coalition
 consequences, non-penalizing retry, exact deadline boundaries with stale phase,
 wrong actor/entity/objective/network/policy bindings, isolation, duplicate

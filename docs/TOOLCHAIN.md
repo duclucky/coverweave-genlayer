@@ -102,3 +102,17 @@ an `0x` prefix. The public proxy now accepts bounded even-length calldata hex on
 for that method; other scalar RPC values still require their usual prefix.
 The meaningful regression failed before the fix and six proxy tests passed after.
 Chrome subsequently displayed the actual archived agreement and coalition result.
+
+Fresh Windows CI exposed two environment assumptions. The check driver now
+prepends the project's `.venv` executables to PATH, so pyright is resolved from
+the pinned toolchain rather than a global installation. The simulator schema
+guard compares exact source modulo CRLF/LF only, because gltest's read_text
+normalizes Windows checkout line endings. Its regression failed before the fix,
+then passed, and still rejects changed code or appended content. Deployed source
+and its byte digest are unchanged; this accommodation is local-tooling only.
+
+Vercel transpiles the API and shared TypeScript files to JavaScript. Standard
+`.js` import specifiers resolve the emitted modules; preserved `.ts` paths failed
+at runtime. The compiled-entry regression proves the real emitted entry loads,
+forwards only public reads and rejects broadcasting. Production canonical reads
+were subsequently verified; see `evidence/studio-dev/frontend.md`.

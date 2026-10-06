@@ -160,7 +160,7 @@ function ProductProvider({
       setWalletError(
         error instanceof Error
           ? error.message
-          : "Wallet connection was declined. You can try again.",
+          : "Wallet connection did not complete. Check the selected wallet and try again.",
       );
     } finally {
       setConnecting(false);

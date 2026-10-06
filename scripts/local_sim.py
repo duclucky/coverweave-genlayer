@@ -11,6 +11,11 @@ inject = loader._inject_message_to_fd0
 unlink = os.unlink
 
 
+def source_matches(code, source):
+    # gltest read_text normalizes CRLF; Windows Git checkout preserves it in bytes.
+    return code.replace(b"\r\n", b"\n") == source.replace(b"\r\n", b"\n")
+
+
 def windows_inject(vm):
     def defer_open_file(path, *args, **kwargs):
         try:
@@ -121,7 +126,7 @@ if __name__ == "__main__":
     schema = json.loads(Path("docs/contract-schema.json").read_text())
 
     def matched_schema(code):
-        if code != source:
+        if not source_matches(code, source):
             raise RuntimeError("Local schema source mismatch")
         return schema
 
