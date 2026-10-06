@@ -1,0 +1,247 @@
+{
+  "ctor": {
+    "params": [],
+    "kwparams": {}
+  },
+  "methods": {
+    "close_bundle": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "consume_permit": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "expire_permit": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "get_accounting": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_attempt": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ],
+        [
+          "index",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_bundle": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_credit": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ],
+        [
+          "owner",
+          "address"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_global_accounting": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_grant": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ],
+        [
+          "slot",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_permit": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "list_bundle_ids": {
+      "params": [
+        [
+          "offset",
+          "int"
+        ],
+        [
+          "limit",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "offer_grant": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ],
+        [
+          "terms",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "open_bundle": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ],
+        [
+          "goal",
+          "string"
+        ],
+        [
+          "issuer_a",
+          "address"
+        ],
+        [
+          "issuer_b",
+          "address"
+        ],
+        [
+          "offer_deadline",
+          "int"
+        ],
+        [
+          "review_deadline",
+          "int"
+        ],
+        [
+          "use_deadline",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": true
+    },
+    "ratify_bundle": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ],
+        [
+          "digest",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "refund_expired": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "review_bundle": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "withdraw_credit": {
+      "params": [
+        [
+          "bundle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    }
+  }
+}

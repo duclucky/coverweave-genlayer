@@ -1,0 +1,20 @@
+{
+  "name": "coverweave-project",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "check": "node scripts/check.mjs && node --test tests/tooling/*.test.mjs && node scripts/integration-check.mjs && npm run test:frontend && npm run typecheck --workspace frontend && npm run build --workspace frontend",
+    "test:integration": "node scripts/integration-check.mjs",
+    "test:frontend": "node --test frontend/tests/*.test.mjs && npm run test:ui --workspace frontend",
+    "dev": "npm run dev --workspace frontend",
+    "build": "npm run build --workspace frontend"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "jsdom": "27.4.0"
+  }
+}

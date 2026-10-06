@@ -1,0 +1,9 @@
+networks:
+  default: studio_devnet
+  studio_devnet:
+    url: "https://studio-next.genlayer.com/api"
+  localnet:
+    url: "http://127.0.0.1:4187/api"
+paths:
+  contracts: "contracts"
+environment: .env
