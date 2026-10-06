@@ -65,7 +65,7 @@ const useProduct = () => useContext(Context)!;
 const short = (value: string) =>
   value ? `${value.slice(0, 6)}…${value.slice(-4)}` : "Not connected";
 const date = (value: number) =>
-  new Date(value * 1000).toLocaleString(undefined, {
+  new Date(value * 1000).toLocaleString("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
   });
@@ -983,11 +983,11 @@ function NewBundle() {
                 <dt>Issuer B</dt>
                 <dd>{form.issuerB}</dd>
                 <dt>Agreement deadline</dt>
-                <dd>{new Date(form.offerTime).toLocaleString()}</dd>
+                <dd>{new Date(form.offerTime).toLocaleString("en-US")}</dd>
                 <dt>Review deadline</dt>
-                <dd>{new Date(form.reviewTime).toLocaleString()}</dd>
+                <dd>{new Date(form.reviewTime).toLocaleString("en-US")}</dd>
                 <dt>Use deadline</dt>
-                <dd>{new Date(form.useTime).toLocaleString()}</dd>
+                <dd>{new Date(form.useTime).toLocaleString("en-US")}</dd>
                 <dt>Reserved purchase</dt>
                 <dd>
                   <strong>2 GEN</strong>

@@ -1,7 +1,7 @@
 # Local verification, 2026-10-06
 
-This is local evidence only. Studio Dev, GenVM sandbox, browser-wallet writes,
-native value exits and public deployment evidence remain pending.
+This file records local evidence only. Live Studio evidence is recorded separately
+under `evidence/studio-dev/`. Browser-wallet signing remains separately unproven.
 
 ## Contract and toolchain
 
@@ -28,17 +28,17 @@ Command: `npm run check`
 Observed final result: exit 0.
 
 ```text
-111 passed in 22.28s
-receipt tests: 9 passed, 0 failed, 0 skipped
+111 passed in 22.62s
+tooling node tests: 22 passed, 0 failed, 0 skipped
 LOCAL ONLY: five simulated validators agree on the canonical coalition vector
-1 passed in 5.13s
-frontend node tests: 7 passed, 0 failed, 0 skipped
-frontend component tests: 13 passed
+1 passed in 4.93s
+frontend node tests: 13 passed, 0 failed, 0 skipped
+frontend component tests: 16 passed
 tsc --noEmit: success
 Vite 8.3.3 production build: completed
 ```
 
-There are 141 executed local cases. Tests include deterministic settlement
+There are 163 executed local cases. Tests include deterministic settlement
 invariants, independent semantic replay, malformed/extra output, all coalition
 consequences, non-penalizing retry, exact deadline boundaries with stale phase,
 wrong actor/entity/objective/network/policy bindings, isolation, duplicate
@@ -76,6 +76,7 @@ The server is started and stopped by the test runner. Mocks must be installed
 before writes. Toolchain adaptations and limitations are in TOOLCHAIN.md.
 
 The receipt regression initially returned 7 failed/2 passed against a false
-success stub; all 9 now pass. Nonpayable write guards likewise had 8 meaningful
+success stub; those 9 pass. A tenth test covers the current Studio leader/vote
+receipt distinction. Nonpayable write guards likewise had 8 meaningful
 failing cases before their implementation. Successful accepted/finalized status
 is always checked separately from successful contract execution.

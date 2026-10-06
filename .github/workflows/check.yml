@@ -1,0 +1,32 @@
+name: Verify contract and product
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    env:
+      PYTHONUTF8: "1"
+      GENVM_VERSION: v0.6.0-rc8
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 24.11.1
+          cache: npm
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v10.2.0
+      - name: Install pinned toolchain
+        run: |
+          python -m venv .venv
+          uv pip install --python .venv/Scripts/python.exe -r requirements.txt
+          npm ci
+      - name: Lint, direct tests, local consensus, wallet adapter, UI and build
+        run: npm run check

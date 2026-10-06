@@ -22,3 +22,6 @@ artifacts/
 .gltest_cache/
 .genlayer/
 docs/ADMISSION.md
+precheck-report.json
+precheck-report.txt
+grade-report.json

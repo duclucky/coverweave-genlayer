@@ -2,6 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { allowedRpcMethod, projectRpcResult, forwardRpc } from '../../shared/rpc-proxy.ts';
 
+test('actual Studio gen_call bare hex is preserved for SDK decoding, never arbitrary data', () => {
+  assert.equal(projectRpcResult('gen_call', 'cc227b22'), 'cc227b22');
+  assert.equal(projectRpcResult('gen_call', '0xcc227b22'), '0xcc227b22');
+  for (const invalid of ['private log', 'abc', { node_config: 'private' }])
+    assert.throws(() => projectRpcResult('gen_call', invalid));
+  assert.throws(() => projectRpcResult('eth_chainId', 'cc227b22'));
+});
+
 test('proxy accepts necessary reads and refuses broadcast, signatures and admin mocks', () => {
   for (const method of ['eth_chainId', 'gen_call', 'eth_getTransactionByHash', 'eth_estimateGas', 'sim_getFeeConfig']) assert.equal(allowedRpcMethod(method), true);
   for (const method of ['eth_sendTransaction', 'eth_sendRawTransaction', 'eth_signTransaction', 'personal_sign', 'sim_installMocks', 'sim_fundAccount']) assert.equal(allowedRpcMethod(method), false);

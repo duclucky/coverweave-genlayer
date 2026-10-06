@@ -52,6 +52,9 @@ export function projectRpcResult(method: string, value: unknown): unknown {
     'number', 'timestamp', 'baseFeePerGas', 'gasLimit', 'gasUsed', 'size', 'nonce',
     'difficulty', 'totalDifficulty', 'miner', 'extraData', 'mixHash', 'logsBloom',
     'receiptsRoot', 'stateRoot', 'transactionsRoot', 'sha3Uncles']);
+  // Current Studio gen_call returns even-length calldata hex without 0x.
+  if (method === 'gen_call' && typeof value === 'string' && value.length <= 262144 &&
+      /^(?:0x)?(?:[0-9a-f]{2})*$/i.test(value)) return value;
   if (typeof value === 'string' && /^0x[0-9a-f]*$/i.test(value)) return value;
   throw new Error('Unexpected public RPC response shape.');
 }

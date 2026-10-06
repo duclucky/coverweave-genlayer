@@ -21,7 +21,8 @@ Direct mode runs the leader and explicitly replays captured validators. It
 does not run a GenVM sandbox or network consensus. Withdrawal tests observe the
 real SDK's `EmitExternalMessage`, including exact recipient and prior credit
 debit; they do not prove a native transfer. Actual Studio Dev smoke, finalized
-lifecycle, native balance decrease and browser-wallet evidence remain pending.
+lifecycle and native balance decrease have since been verified separately in
+`evidence/studio-dev/lifecycle.md`. Browser-wallet signing remains pending.
 
 The direct loader had a truncated cached rc8 archive. The incomplete file was
 retained with an `.incomplete-20261006` suffix and replaced by the complete
@@ -95,3 +96,9 @@ The signed write carries no simulation configuration or clock override; all
 contract transaction-time checks remain active. A regression verifies canonical
 time, caller, destination, exact 2-GEN value, calldata and rejection of failed
 profiling. No 2-GEN purchase was broadcast during this diagnosis.
+
+The actual browser canonical read exposed Studio `gen_call` returning hex without
+an `0x` prefix. The public proxy now accepts bounded even-length calldata hex only
+for that method; other scalar RPC values still require their usual prefix.
+The meaningful regression failed before the fix and six proxy tests passed after.
+Chrome subsequently displayed the actual archived agreement and coalition result.
