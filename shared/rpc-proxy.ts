@@ -20,11 +20,11 @@ export function projectRpcResult(method: string, value: unknown): unknown {
   if (method === 'eth_getTransactionByHash') {
     const source = record(value);
     const projected = scalars(source, ['hash', 'status', 'result', 'from', 'to',
-      'from_address', 'to_address', 'created_at']);
+      'from_address', 'to_address', 'created_at', 'txExecutionResult', 'txExecutionResultName']);
     const rawLeaders = record(source.consensus_data).leader_receipt;
     const leaders = Array.isArray(rawLeaders) ? rawLeaders : rawLeaders && typeof rawLeaders === 'object' ? [rawLeaders] : [];
     if (leaders.length) projected.consensus_data = {
-      leader_receipt: leaders.slice(0, 32).map(leader => scalars(leader, ['execution_result'])),
+      leader_receipt: leaders.slice(0, 32).map(leader => scalars(leader, ['execution_result', 'mode'])),
     };
     return projected;
   }

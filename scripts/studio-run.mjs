@@ -10,6 +10,7 @@ import { CalldataAddress } from 'genlayer-js/types';
 import { authorizedAccounts, studioClient, projectRoot, icRpc, explorer } from './studio-config.mjs';
 import { readJournal, saveJournal, recordBroadcast } from './studio-journal.mjs';
 import { receiptState, assertFinalizedSuccess } from './receipt.mjs';
+import { quoteStudioWrite } from './studio-quote.mjs';
 
 const mode = process.argv[2] || 'inspect';
 if (!['inspect', 'deploy', 'lifecycle'].includes(mode)) throw new Error('Use inspect, deploy or lifecycle.');
@@ -148,8 +149,7 @@ async function write(key, role, method, args, id, gen = 0n) {
     before.recipientBalanceGEN = formatUnits(await balance(accounts[role].address), 18);
     if (method === 'withdraw_credit') before.creditGEN = (await view('get_credit', [id,
       new CalldataAddress(hexToBytes(accounts[role].address))])).credit_gen;
-    const quote = await client.estimateTransactionFeesForWrite({ address: journal.contractAddress,
-      functionName: method, args, value: gen * 10n ** 18n, transactionHashVariant: TransactionHashVariant.LATEST_FINAL });
+    const quote = await quoteStudioWrite(client, accounts[role].address, journal.contractAddress, method, args, gen * 10n ** 18n);
     await step(key, role, () => client.writeContract({ address: journal.contractAddress, functionName: method, args,
       value: gen * 10n ** 18n, fees: { distribution: quote.distribution, feeValue: quote.feeValue,
         messageAllocations: quote.messageAllocations } }), quote, before);

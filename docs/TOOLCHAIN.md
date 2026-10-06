@@ -71,3 +71,27 @@ write. The metadata regression was corrected (observed RED), then source order
 was fixed without changing runner, API, contract count or business logic.
 Deployment simulation supplies the SDK baseline fee distribution before
 measuring its exact GenVM execution; no gasless behavior is assumed.
+
+The first real deployment finalized successfully, but revealed another current
+Studio receipt shape: `leader_receipt` contains leader execution at index 0 and
+that leader's validator-path vote at index 1. An `idle` validator vote can carry
+ERROR without changing the decided leader's successful execution. Official
+`TransactionsProcessor._leader_receipt` and `_process_execution_hash` select
+these separate positions (current main source inspected on 2026-10-06).
+The parser now distinguishes them only when the ordered explicit modes are
+`leader` followed by `validator`; unlabelled/contradictory execution records and
+contradictory normalized execution fields still fail closed. Regression RED was
+1 failed/9 passed, then GREEN 10 passed. Proxy projection preserves only these
+mode/execution enums and canonical execution-result fields. No private payload
+is exposed. The existing broadcast was recovered without a second deployment.
+
+Studio's default write-simulation time rejected otherwise valid deadlines.
+At an explicit current time that rejection disappeared, but its small default
+fee budget produced `out_of storage`. The exact same call with the SDK baseline
+budget returned SUCCESS with measured accounting. `studio-quote.mjs` therefore
+reads the latest canonical block timestamp and supplies it only to `sim_call`,
+with the SDK baseline distribution, before estimating the measured receipt.
+The signed write carries no simulation configuration or clock override; all
+contract transaction-time checks remain active. A regression verifies canonical
+time, caller, destination, exact 2-GEN value, calldata and rejection of failed
+profiling. No 2-GEN purchase was broadcast during this diagnosis.

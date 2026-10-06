@@ -23,7 +23,13 @@ export function receiptState(receipt) {
   add(receipt?.txExecutionResultName);
   add(receipt?.txExecutionResult);
   const leaders = receipt?.consensus_data?.leader_receipt;
-  for (const leader of Array.isArray(leaders) ? leaders : leaders ? [leaders] : []) {
+  const entries = Array.isArray(leaders) ? leaders : leaders ? [leaders] : [];
+  // Current Studio stores [leader execution, leader's validator-path vote].
+  // Only the explicit, ordered mode labels prove that second meaning.
+  // Unknown/multiple leader shapes retain the conservative contradiction checks.
+  const executions = entries[0]?.mode === 'leader' && entries.slice(1).every(item => item?.mode === 'validator')
+    ? entries.slice(0, 1) : entries;
+  for (const leader of executions) {
     add(leader?.execution_result);
   }
   const execution = evidence.includes('ERROR') ? 'ERROR' :

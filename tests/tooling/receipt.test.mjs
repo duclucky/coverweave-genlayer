@@ -2,6 +2,16 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { receiptState } from '../../scripts/receipt.mjs';
 
+test('current Studio separates leader execution from its explicitly labelled validator vote', () => {
+  const receipt = { status: 'FINALIZED', txExecutionResult: 1, txExecutionResultName: 'FINISHED_WITH_RETURN',
+    consensus_data: { leader_receipt: [{ mode: 'leader', execution_result: 'SUCCESS' },
+      { mode: 'validator', execution_result: 'ERROR', vote: 'idle' }] } };
+  assert.deepEqual(receiptState(receipt), { accepted: true, finalized: true, execution: 'SUCCESS' });
+  receipt.txExecutionResult = 2;
+  receipt.txExecutionResultName = 'FINISHED_WITH_ERROR';
+  assert.equal(receiptState(receipt).execution, 'ERROR');
+});
+
 test('raw Studio finalized SUCCESS is recognized; node config never escapes', () => {
   const raw = { status: 'FINALIZED', consensus_data: { leader_receipt: [
     { execution_result: 'SUCCESS', node_config: { private: 'never-project' }, genvm_result: { stdout: 'never-project' } },

@@ -1,0 +1,49 @@
+{
+  "project": "coverweave",
+  "network": "studio-dev",
+  "chainId": 61997,
+  "icRpc": "https://studio-next.genlayer.com/api",
+  "explorer": "https://explorer-studio-dev.genlayer.com",
+  "sourceCommit": "1e6dc3d667ed62f5da552884da4dd82079bdd162",
+  "sourceSha256": "4a1055b947aaa7917c6d1149ad7551037fb748e81763c556bc49bc39a7821865",
+  "runner": "py-genlayer:5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng",
+  "apiVersion": "v0.3.0",
+  "sdk": "genlayer-js@2.0.0-rc.1",
+  "steps": {
+    "deploy": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000755563200010352",
+      "before": {
+        "simulationExecution": "SUCCESS",
+        "userValueGEN": "0"
+      },
+      "status": "FINALIZED",
+      "hash": "0x11cc09d8ad71b42f5206effc2f7934140019b72c54e690b1c7a98b01459f93ec",
+      "submittedAtObservedUTC": "2026-10-06T14:56:53.944Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x11cc09d8ad71b42f5206effc2f7934140019b72c54e690b1c7a98b01459f93ec",
+      "execution": "SUCCESS",
+      "lastObservedUTC": "2026-10-06T14:57:03.739Z",
+      "finalityObservedUTC": "2026-10-06T15:01:08.288Z",
+      "networkFinalizedAt": null
+    }
+  },
+  "contractAddress": "0xe4F0378799b47e7AE05F64d93dFE6590F68C5833",
+  "status": "ACTIVE",
+  "sourceParityVerified": true,
+  "schemaMethodCount": 17,
+  "initialAccounting": {
+    "bundle_count": 0,
+    "credits_gen": "0",
+    "liability_gen": "0",
+    "locked_gen": "0",
+    "received_gen": "0",
+    "withdrawn_gen": "0"
+  },
+  "demo": {
+    "id": "cw-studio-complement-20261006-01",
+    "offerDeadline": 1791302604,
+    "reviewDeadline": 1791306204,
+    "useDeadline": 1791309804,
+    "recovery": "refund_expired -> buyer withdraw -> close; purchased -> consume/expire -> issuer withdrawals -> close"
+  }
+}
