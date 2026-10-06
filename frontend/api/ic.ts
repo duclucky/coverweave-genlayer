@@ -1,1 +1,1 @@
-export { rpcHandler as default } from '../../shared/rpc-handler.ts';
+export { rpcHandler as default } from '../../shared/rpc-handler.js';

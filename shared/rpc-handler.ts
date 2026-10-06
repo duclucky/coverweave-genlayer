@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { forwardRpc } from './rpc-proxy.ts';
+import { forwardRpc } from './rpc-proxy.js';
 
 export async function rpcHandler(req: IncomingMessage & { body?: unknown }, res: ServerResponse) {
   res.setHeader('Content-Type', 'application/json');

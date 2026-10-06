@@ -1,10 +1,13 @@
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve, delimiter } from 'node:path';
 
 const python = join('.venv', process.platform === 'win32' ? 'Scripts/python.exe' : 'bin/python');
 if (!existsSync(python)) throw new Error('Create the repository Python 3.12 .venv and install requirements.txt first.');
-const env = { ...process.env, PYTHONUTF8: '1', GENVM_VERSION: 'v0.6.0-rc8' };
+// Linter subprocesses must use the installed project tools, not global pyright.
+const pathKey = Object.keys(process.env).find(key => key.toLowerCase() === 'path') ?? 'PATH';
+const env = { ...process.env, [pathKey]: resolve('.venv', process.platform === 'win32' ? 'Scripts' : 'bin') +
+  delimiter + (process.env[pathKey] ?? ''), PYTHONUTF8: '1', GENVM_VERSION: 'v0.6.0-rc8' };
 for (const args of [
   ['scripts/linter_v03_compat.py'],
   ['-m', 'genvm_linter.cli', 'check', 'contracts/coverweave.py'],
