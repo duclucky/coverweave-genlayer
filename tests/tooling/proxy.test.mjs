@@ -47,6 +47,7 @@ test('write fee simulation returns only an SDK fee preset, never receipt or vali
   const r=JSON.parse(options.body);calls++;
   if(r.method==='eth_getBlockByNumber')return new Response(JSON.stringify({result:{timestamp:'0x6ac50efc'}}));
   assert.equal(r.method,'sim_estimateTransactionFees');
+  assert.equal(r.params[0].to,'0xe4F0378799b47e7AE05F64d93dFE6590F68C5833','Studio profiler requires the canonical checksum spelling');
   assert.deepEqual(r.params[0].sim_config,{genvm_datetime:'2026-10-06T15:08:44.000Z'});
   assert.equal(r.params[0].transaction_hash_variant,'latest-final');
   return new Response(JSON.stringify({result:{recommendedPreset:{distribution:{rotations:[3]},feeValue:'4',messageAllocations:[]}}}));

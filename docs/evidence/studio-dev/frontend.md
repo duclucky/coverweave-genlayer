@@ -84,6 +84,11 @@ the read-only resume regression reproduced the indefinite pending display.
 Both pass, along with the safe fee-preset projection and compiled server entry.
 `npm run check`: 170 passed, zero skipped, lint/typecheck/build success.
 Browser successful lifecycle proof remains pending.
+An initial production fee-profile probe failed before any broadcast because the
+proxy lowercased its destination. A controlled Studio read/simulation comparison
+proved checksum spelling succeeds while lowercase reports contract-missing.
+The proxy destination and its regression were corrected; this did not change
+contract source, address, network or deployed accounting.
 
 Sanitized records: [browser wallet attempts](browser-wallet.json) and
 [native funding](browser-funding.json).

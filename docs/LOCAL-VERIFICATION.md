@@ -60,6 +60,11 @@ recommended public fee preset. It never forwards a raw simulation receipt.
 A separate regression reproduced indefinite pending after a reverted EVM
 envelope, then passed after read-only confirmation recognized `status 0x0`.
 The compiled production-entry regression also passes with the pinned SDK.
+Production profiling then exposed Studio's case-sensitive contract lookup:
+lowercase destination returned contract-missing, while the exact checksum
+deployment address produced a fee preset. The proxy now preserves that spelling;
+its regression reproduced the failure before the correction. No transaction was
+sent by either profiler probe.
 
 The current in-app browser blocks both localhost and loopback URLs with
 `ERR_BLOCKED_BY_CLIENT`. Earlier Chrome local canonical-read proof remains

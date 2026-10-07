@@ -1,7 +1,7 @@
 import { abi } from 'genlayer-js';
 import { fromRlp, isAddress } from 'viem';
 const IC_RPC = 'https://studio-next.genlayer.com/api';
-const CONTRACT = '0xe4f0378799b47e7ae05f64d93dfe6590f68c5833';
+const CONTRACT = '0xe4F0378799b47e7AE05F64d93dFE6590F68C5833';
 const methods = new Set(['eth_chainId', 'gen_call', 'eth_getTransactionByHash',
   'eth_getTransactionReceipt', 'eth_getTransactionCount', 'eth_estimateGas',
   'eth_gasPrice', 'eth_blockNumber', 'eth_getBlockByNumber', 'sim_getFeeConfig', 'sim_estimateTransactionFees']);
@@ -94,7 +94,7 @@ export async function forwardRpc(body: unknown, request: typeof fetch = fetch) {
     if (input.method === 'sim_estimateTransactionFees') {
       const call = record(input.params[0]);
       if (input.params.length !== 1 || call.type !== 'write' || typeof call.from !== 'string' || !isAddress(call.from) ||
-        typeof call.to !== 'string' || call.to.toLowerCase() !== CONTRACT || typeof call.data !== 'string')
+        typeof call.to !== 'string' || call.to.toLowerCase() !== CONTRACT.toLowerCase() || typeof call.data !== 'string')
         return failure(-32602,'Only this contract may be profiled.');
       const wire = fromRlp(call.data as `0x${string}`, 'bytes');
       if (!Array.isArray(wire) || wire.length !== 2) return failure(-32602,'Invalid write profile.');
