@@ -92,3 +92,41 @@ contract source, address, network or deployed accounting.
 
 Sanitized records: [browser wallet attempts](browser-wallet.json) and
 [native funding](browser-funding.json).
+
+## Actual in-app buyer execution, 2026-10-07
+
+The owner used OKX in Codex's in-app browser with buyer
+`0x4e776b88e79c4f82f4e01115dd52c43e0cec6034`. The frontend prepared each
+transaction and the owner performed its final wallet signature. Each successful
+write displayed its submitted/accepted/finalized states and reloaded canonical
+contract views. This uses the same deployed contract and pinned source.
+
+| Buyer action | Hash | Verified canonical result |
+| --- | --- | --- |
+| Purchase 2 GEN | `0x50baf25100ae7162a8266bf15467092766e891f556d23e7b66c63432cd1aeef4` | FINALIZED/SUCCESS, OPEN, 2 GEN locked |
+| Accept the definition | `0x52d3e006191edef98058ea7d1e08a2f3ffed417e044f5df0bdea493bfba0ecf6` | FINALIZED/SUCCESS, READY, assents=7 |
+| Check coverage | `0x8760031b463d10e6c13d52cdfda6923b86d0a240be5dfc84cad33340df318c29` | FINALIZED/SUCCESS, PURCHASED, I/I/C, 1 GEN credit per issuer |
+| Use permission | `0x001cc2bff405558ec02a834e86ac715cf62434d6f85be55e0970008b851daa56` | FINALIZED/SUCCESS, permit CONSUMED |
+| Archive | `0x14152326ec4b196c388ee644ae60ec011e249a2a3f6647bf94e96ea779731042` | FINALIZED/SUCCESS, CLOSED, zero liability/native balance |
+
+Issuer A/B offers, definition acceptance and withdrawals were signed by the
+authorized issuer scripts. They are not browser issuer-signing proof. Both
+withdrawals finalized successfully with exact 1-GEN native contract-balance
+decreases. Global accounting then showed 10 GEN received and withdrawn across
+five bundles, zero liability and zero native balance. Buyer archive finalized at
+2026-10-07T02:42:20.301Z; the actual UI displayed Archived and no further action.
+The complete five-action buyer browser lifecycle is proved. Browser issuer
+actions, browser recovery/retry and external usage are not claimed as executed.
+
+The browser signing revision was `07a5a9f7351bc0e54ccdc16fb86bcb3c999483e6`,
+production deployment `dpl_DewbKxuEvmnyR1i1bTWgxJWprbaR` READY. Its CI run
+[37558053275](https://github.com/duclucky/coverweave-genlayer/actions/runs/37558053275)
+was SUCCESS. Later documentation revisions require their own successful CI.
+The final safe [buyer journal](browser-wallet.json), [issuer journal](browser-peers.json)
+and [global read](final-canonical.json) contain the projected verification data.
+Commands used read-only receipt/view inspectors; they performed zero writes.
+
+During refresh, Workspace showed one explicit public-RPC read error. The UI
+offered Try again; direct return to the agreement reloaded canonical zero credits
+and exposed Archive. No missing data was replaced with simulated state. This
+transient read failure is retained as a service availability limitation.

@@ -6,7 +6,7 @@
 - Project name: CoverWeave
 - Project slug: coverweave
 - Category: Projects (new complete application, not an existing-project milestone)
-- Status: BUILDING; finalized Studio lifecycle and hosted reads verified; browser signing pending
+- Status: IMPLEMENTED; finalized Studio lifecycle, hosted reads and buyer browser lifecycle verified; external acceptance unclaimed
 - Repository: https://github.com/duclucky/coverweave-genlayer
 - Target network: Studio Dev, chain 61997; locked IC RPC studio-next.genlayer.com/api
 - Runtime: v0.3.0 with concrete py-genlayer runner 5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng
@@ -64,10 +64,11 @@ deterministic contract code alone derives money and permit state.
 | Contract count | PASS_ADMISSION | exactly one contract owns independent canonical state, GEN accounting and permit enforcement. A pass-through second guard is absent. |
 | Differentiation | PASS_ADMISSION | nearest comparisons above have <=2 material matches; coalition marginal coverage/share purchase differs from matching, tier waterfall, conflict scheduling, attribution and grant attenuation. |
 | Claim-to-code | PASS_ADMISSION | every scoped claim has planned write/state/view/test/UI and real evidence requirement above; no adoption or delivery claim. |
-| Full lifecycle | PASS_ADMISSION / PENDING_EXECUTION | complete design admitted; Studio complementary judgment, permit consumption, exact native withdrawals and zero closure verified in evidence/studio-dev/lifecycle.md. Actual browser-wallet lifecycle remains mandatory and pending. |
+| Full lifecycle | PASS_ADMISSION / PASS_EXECUTION | Complete design admitted separately from execution. Studio allocation/recovery and exact native withdrawals are verified. The in-app OKX buyer completed purchase, assent, review, use and archive; issuer steps are script-signed, explicitly distinct. |
 | Scope honesty | PASS_ADMISSION | constitutive protocol rights only; no external legal, performance, IP, service execution or adoption claim; unsigned simulation cannot prove finalized multi-validator consensus, withdrawal or browser flow. |
 
-Gate 13 execution remains pending. Admission is never submission readiness.
+Gate 13 execution has separate current buyer-browser and issuer-script evidence.
+Admission alone was never counted as execution or submission readiness.
 
 ## Actors, roles and incentives
 
@@ -273,16 +274,16 @@ No action accepts externally computed shares, verdicts or arbitrary recipients.
 
 | Canonical state | User action | Contract write | UI component | Frontend test | Evidence status |
 | --- | --- | --- | --- | --- | --- |
-| New | Review exact terms and reserve 2 GEN | open_bundle | NewBundle two-step form | Buyer creation -> finalized detail adapter test | Local UI PASS; browser network execution PENDING |
-| OPEN, own grant missing | Offer permission | offer_grant | BundleDetail next-action form | Exact issuer terms command/reload test | Local UI PASS; real signer PENDING |
-| OPEN, both offers | Accept complete agreement | ratify_bundle | BundleDetail exact-digest action | Assent command/digest/reload test | Local UI PASS; real signer PENDING |
-| READY | Check coverage | review_bundle | BundleDetail contextual review | Review command/reload + coverage rendering | Local UI PASS; live script consensus PASS; browser signing PENDING |
+| New | Review exact terms and reserve 2 GEN | open_bundle | NewBundle two-step form | Buyer creation -> finalized detail adapter test | Local UI PASS; buyer browser FINALIZED/SUCCESS |
+| OPEN, own grant missing | Offer permission | offer_grant | BundleDetail next-action form | Exact issuer terms command/reload test | Local UI PASS; issuer script FINALIZED/SUCCESS; browser issuer execution unproven |
+| OPEN, both offers | Accept complete agreement | ratify_bundle | BundleDetail exact-digest action | Assent command/digest/reload test | Local UI PASS; buyer browser and issuer script FINALIZED/SUCCESS |
+| READY | Check coverage | review_bundle | BundleDetail contextual review | Review command/reload + coverage rendering | Local UI PASS; live script and buyer browser FINALIZED/SUCCESS |
 | RETRYABLE | Retry coverage | review_bundle | BundleDetail retry label | Retry command/reload + bounds tests | Local UI PASS; live retry/failure proof PENDING |
-| PURCHASED, AVAILABLE | Use permission | consume_permit | BundleDetail buyer action | Consume command/reload and equality tests | Local UI PASS; real browser buyer PENDING |
+| PURCHASED, AVAILABLE | Use permission | consume_permit | BundleDetail buyer action | Consume command/reload and equality tests | Local UI PASS; buyer browser FINALIZED/SUCCESS, CONSUMED |
 | Pending and expired | Recover purchase | refund_expired | BundleDetail recovery action | Refund command/reload and stale-boundary test | Local UI PASS; script expiry refund and native withdrawal PASS; browser signing PENDING |
 | PURCHASED, unused expired permit | Expire permission | expire_permit | BundleDetail recovery action | Expiry command/reload and equality tests | Local UI PASS; live recovery PENDING |
 | Terminal, positive own credit | Withdraw GEN | withdraw_credit | BundleDetail / Credits | Own-share command/reload test | Local UI PASS; script native balance/recipient proof PASS; browser signing PENDING |
-| Terminal, zero liability, no live permit | Archive agreement | close_bundle | BundleDetail buyer action | Close command/reload and accounting gate test | Local UI PASS; script canonical CLOSED PASS; browser signing PENDING |
+| Terminal, zero liability, no live permit | Archive agreement | close_bundle | BundleDetail buyer action | Close command/reload and accounting gate test | Local UI PASS; script and buyer browser canonical CLOSED, zero liability/native balance |
 | Any | Read/filter/history/logout | Views and wallet session only | Workspace/Detail/Account | Canonical rendering, explicit read error, logout hides writes | Browser local navigation and production canonical reads PASS; wallet logout tests PASS |
 
 ## Evidence policy
@@ -477,10 +478,10 @@ Do not fake unsupported mocks or silently skip required integration checks.
 | --- | --- | --- | --- | --- |
 | Coalition meanings drive marginal shares | review_bundle/PURCHASED | get_attempt, get_credit | Four vectors + semantic replay + conservation | evidence/studio-dev/lifecycle.md: live I/I/C gives 1/1 GEN; C/I/C gives 2/0 GEN; all recovered/closed PASS; other vectors local only |
 | Exact roles and all-party agreement | offer_grant, ratify_bundle/READY | get_grant, get_bundle | Wrong actor/entity/digest/version tripwires | evidence/studio-dev/deployment.json: three distinct signed actors, immutable offers, assents=7 PASS |
-| One buyer protocol use | consume_permit/CONSUMED | get_permit | Wrong holder, boundary and duplicate | Script FINALIZED/CONSUMED PASS in lifecycle.md; actual browser-signed consume pending |
+| One buyer protocol use | consume_permit/CONSUMED | get_permit | Wrong holder, boundary and duplicate | Script and buyer browser FINALIZED/CONSUMED PASS in lifecycle.md and browser-wallet.json |
 | Complete no-cover/expiry recovery | review_bundle/refund_expired/REFUNDED | get_credit, get_accounting | No-cover and partial/full assent expiry | deployment.json: gap and expiry CLOSED, buyer withdrew 2 GEN each, exact native decreases and zero liability PASS; browser recovery pending |
 | Exact value exit and closure | withdraw_credit, close_bundle/CLOSED | Credit, accounting, native balances | Debit ordering, duplicate, orphan prevention | lifecycle.md and deployment.json: two exact native decreases of 1 GEN, recipient balance deltas, CLOSED, zero accounting/native balance PASS |
-| Full product uses actual chain | All nine writes and canonical reads | Typed adapter, bounded views | UI exact-command/reload tests + real-SDK regression | frontend.md: local and hosted canonical reads and proxy PASS; real browser wallet writes pending |
+| Full product uses actual chain | All nine writes and canonical reads | Typed adapter, bounded views | UI exact-command/reload tests + real-SDK regression | frontend.md: local/hosted reads PASS; five buyer browser writes FINALIZED/SUCCESS; peer script actions separate |
 | Builder reuse without judge fork | Documented single-contract interface | Bundle/grant/attempt/permit/credit views | Isolation + adapter compatibility | Public source and CI run 37553212901 PASS; source/schema parity verified; consumers proposed, adoption not claimed |
 
 ## Analogue and differentiation matrix
@@ -531,18 +532,19 @@ Category Projects; do not weaken requirements or switch category.
 - [x] Direct/adversarial/metadata/parser tests and matched integration checks PASS.
 - [x] npm run check includes contract, tests, real-SDK wallet regression, typecheck/build.
 - [x] Finalized Studio Dev consequential lifecycle and recovery with exact GEN proof: complement, dummy, no-cover and pending expiry; semantic retry remains local-only proof.
-- [ ] Full real browser-wallet user workflow, canonical reads and browser RPC proof.
-- [ ] Every claimed browser action has wrapper/control/test/finality/reload/evidence.
+- [x] Full buyer browser-wallet workflow, canonical reads and browser RPC proof; issuer actions are script-signed.
+- [x] Every claimed browser action has wrapper/control/test/finality/reload/evidence.
 - [x] Meaningful multi-page product preserves baseline and exposes only user needs.
-- [x] Public sanitized repository with meaningful commits and successful CI (37553212901); final revision CI remains separately required.
+- [x] Public sanitized repository with meaningful commits and successful CI; each later public revision requires its own successful run.
 - [x] Verified Vercel HTTP 200 app, real address/explorer links and final README.
-- [ ] Four-source audit, current Portal packet/report and honest submission evidence.
+- [x] Four-source authority audit with current canonical buyer/script evidence and explicit unproven branches.
 - [x] Full grading command -Project coverweave -Category projects => 0 BLOCKER, 1 WARN; npm check and standalone gltest PASS, no SkipDynamic (2026-10-07).
-- [ ] Final master reread item by item, postmortem and registry updated; uncertainty listed.
+- Workspace registry, prompt audit and submission-control records are maintained privately; Portal submission does not imply acceptance.
 
-Unchecked means PENDING, not skipped. Local checks, live script consequence and
-recovery, public source and hosted canonical reads are verified. Browser-wallet
-lifecycle, final revision audit/CI and final acceptance remain pending.
+Local checks, live script consequence/recovery, hosted canonical reads and the
+complete five-action buyer browser lifecycle are verified separately. The safe
+records exclude the failed envelope and separate native funding. External
+acceptance, issuer browser execution and browser retry/recovery are unproven.
 
 ## Honest limitations
 

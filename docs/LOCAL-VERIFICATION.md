@@ -131,5 +131,9 @@ injections. Root-cause/dependency classification is outside this coalition schem
 invalid coverage/classes and conservation are the relevant settlement invariants.
 No authenticated external ownership, service delivery or usage is claimed.
 Browser read proof and script-signed network writes remain distinct. All nine UI
-actions have wrapper/control/test/finality/reload paths, but actual browser-wallet
-execution remains pending and blocks Projects completion and submission.
+actions have wrapper/control/test/finality/reload paths. Actual in-app OKX buyer
+purchase, assent, review, use and archive each finalized successfully and reloaded
+canonical state; issuer steps are explicitly script-signed. The browser journal
+excludes the earlier reverted envelope. Five bundles are CLOSED, with 10 GEN
+received/withdrawn and zero liability/native balance. Browser issuer signing,
+browser retry/recovery and external usage remain unproven, without those claims.

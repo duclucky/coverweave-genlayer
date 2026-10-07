@@ -123,3 +123,29 @@ temporal boundaries, retry and invalid semantic output; those local cases are
 not additional live Studio transactions. Gap/refund and pending expiry now have
 the separate real transactions documented above. No external gateway currently
 consumes this protocol permit.
+
+## In-app buyer lifecycle, 2026-10-07
+
+Bundle `cw-browser-complement-20261007-01` used an OKX buyer in the Codex
+in-app browser. The frontend prepared all five buyer writes; the owner signed
+each in the extension: purchase 2 GEN, assent, review, use and archive.
+All five finalized successfully; the UI reloaded canonical state after each.
+The review returned I/I/C with context_ok=true, giving each issuer 1 GEN and
+the buyer one protocol use. The final bundle is CLOSED, permit CONSUMED,
+received=withdrawn=2 GEN, locked=credits=liability=0 GEN and native balance=0 GEN.
+
+Issuer offers, assents and two withdrawals were six authorized script-signed
+transactions. Both withdrawals independently prove exact 1-GEN contract-native
+decreases. These peer actions do not claim browser issuer execution.
+
+Safe evidence: [buyer wallet journal](browser-wallet.json),
+[issuer peer journal](browser-peers.json) and [final canonical read](final-canonical.json).
+The last read, at 2026-10-07T02:42:45.202Z, proves five bundles and source parity:
+received=withdrawn=10 GEN, locked=credits=liability=0 GEN, native balance=0 GEN.
+There are 46 distinct FINALIZED/SUCCESS intelligent transactions across both
+journals and the existing deployment journal. The reverted fee envelope and
+two native funding transfers are excluded from that count.
+
+Browser issuer signing and browser retry/recovery branches remain unproven.
+The actual browser purchase/read/finality paths are now proved; previous pending
+statements above describe the earlier evidence collection stage.

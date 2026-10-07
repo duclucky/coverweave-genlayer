@@ -1,0 +1,427 @@
+{
+  "network": "studio-dev",
+  "chainId": 61997,
+  "bundleID": "cw-browser-complement-20261007-01",
+  "contractAddress": "0xe4F0378799b47e7AE05F64d93dFE6590F68C5833",
+  "signingBoundary": "Authorized issuer scripts, not browser wallet proof",
+  "steps": {
+    "issuerA-offer_grant": {
+      "actor": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "method": "offer_grant",
+      "before": {
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "OPEN",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "31.656767455666621781"
+      },
+      "feeQuoteGEN": "0.000754832400010352",
+      "hash": "0xf9888bb4bb8039537d10f11ce466788f9c595a566eaf2a7b1887f3be401b3c2e",
+      "status": "FINALIZED",
+      "submittedAtObservedUTC": "2026-10-07T02:14:30.714Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xf9888bb4bb8039537d10f11ce466788f9c595a566eaf2a7b1887f3be401b3c2e",
+      "execution": "SUCCESS",
+      "networkAcceptedAt": "2026-10-07T02:14:32.897Z",
+      "networkFinalizedAt": "2026-10-07T02:15:03.149Z",
+      "after": {
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "OPEN",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "31.656688826916620958"
+      },
+      "verifiedObservedUTC": "2026-10-07T02:15:08.866Z"
+    },
+    "issuerB-offer_grant": {
+      "actor": "0x45248be151F7f7e230150db23774733Cd966Eb45",
+      "method": "offer_grant",
+      "before": {
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "OPEN",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "3.995735504700005441"
+      },
+      "feeQuoteGEN": "0.000754836000010352",
+      "hash": "0x2e4e422e12b89f6c21c2798d1db4496e4597b845359ad1f284e98a91f9164630",
+      "status": "FINALIZED",
+      "submittedAtObservedUTC": "2026-10-07T02:15:15.554Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x2e4e422e12b89f6c21c2798d1db4496e4597b845359ad1f284e98a91f9164630",
+      "execution": "SUCCESS",
+      "networkAcceptedAt": "2026-10-07T02:15:20.961Z",
+      "networkFinalizedAt": "2026-10-07T02:15:51.107Z",
+      "after": {
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "OPEN",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "3.995656875200004618"
+      },
+      "verifiedObservedUTC": "2026-10-07T02:15:56.500Z"
+    },
+    "issuerA-ratify_bundle": {
+      "actor": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "method": "ratify_bundle",
+      "before": {
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "OPEN",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "31.656688826916620958"
+      },
+      "feeQuoteGEN": "0.000754830000010352",
+      "hash": "0x04beaeaa658450ad9a9d96813b0b62995a3924e857ca7da050033f0e5b950f26",
+      "status": "FINALIZED",
+      "submittedAtObservedUTC": "2026-10-07T02:16:03.549Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x04beaeaa658450ad9a9d96813b0b62995a3924e857ca7da050033f0e5b950f26",
+      "execution": "SUCCESS",
+      "networkAcceptedAt": "2026-10-07T02:16:08.985Z",
+      "networkFinalizedAt": "2026-10-07T02:16:39.130Z",
+      "after": {
+        "bundle": {
+          "assents": 2,
+          "attempt_count": 0,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "OPEN",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "31.656610198666620135"
+      },
+      "verifiedObservedUTC": "2026-10-07T02:16:45.497Z"
+    },
+    "issuerB-ratify_bundle": {
+      "actor": "0x45248be151F7f7e230150db23774733Cd966Eb45",
+      "method": "ratify_bundle",
+      "before": {
+        "bundle": {
+          "assents": 2,
+          "attempt_count": 0,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "OPEN",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "3.995656875200004618"
+      },
+      "feeQuoteGEN": "0.000754830000010352",
+      "hash": "0x401c06de49281af90993410963fa838cba031eb6416b6b36f459689da98ee76d",
+      "status": "FINALIZED",
+      "submittedAtObservedUTC": "2026-10-07T02:16:51.875Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x401c06de49281af90993410963fa838cba031eb6416b6b36f459689da98ee76d",
+      "execution": "SUCCESS",
+      "networkAcceptedAt": "2026-10-07T02:16:57.259Z",
+      "networkFinalizedAt": "2026-10-07T02:17:27.410Z",
+      "after": {
+        "bundle": {
+          "assents": 6,
+          "attempt_count": 0,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "OPEN",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "3.995578246950003795"
+      },
+      "verifiedObservedUTC": "2026-10-07T02:17:33.355Z"
+    },
+    "issuerA-withdraw_credit": {
+      "actor": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "method": "withdraw_credit",
+      "before": {
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "AVAILABLE",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "PURCHASED",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "2",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "nativeContractBalanceGEN": "2",
+        "recipientBalanceGEN": "31.656610198666620135"
+      },
+      "feeQuoteGEN": "0.001212525600010352",
+      "hash": "0x0bf18265eb2075e371326afdaa3dfd819e903f71a3c58c378bdbe736bcc060af",
+      "status": "FINALIZED",
+      "submittedAtObservedUTC": "2026-10-07T02:39:02.964Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x0bf18265eb2075e371326afdaa3dfd819e903f71a3c58c378bdbe736bcc060af",
+      "nativeDecreaseGEN": "1",
+      "nativeTransferVerified": true,
+      "execution": "SUCCESS",
+      "networkAcceptedAt": "2026-10-07T02:39:07.905Z",
+      "networkFinalizedAt": "2026-10-07T02:39:38.101Z",
+      "after": {
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "CONSUMED",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "PURCHASED",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "1",
+          "exists": true,
+          "liability_gen": "1",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "1"
+        },
+        "nativeContractBalanceGEN": "1",
+        "recipientBalanceGEN": "32.656483893166619312"
+      },
+      "verifiedObservedUTC": "2026-10-07T02:39:41.900Z"
+    },
+    "issuerB-withdraw_credit": {
+      "actor": "0x45248be151F7f7e230150db23774733Cd966Eb45",
+      "method": "withdraw_credit",
+      "before": {
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "CONSUMED",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "PURCHASED",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "1",
+          "exists": true,
+          "liability_gen": "1",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "1"
+        },
+        "nativeContractBalanceGEN": "1",
+        "recipientBalanceGEN": "3.995578246950003795"
+      },
+      "feeQuoteGEN": "0.001212525600010352",
+      "hash": "0x4c21bbdcd7c508853a55c134f242cdebfe5eeb25333dcef6065dffb9a5de14b1",
+      "status": "FINALIZED",
+      "submittedAtObservedUTC": "2026-10-07T02:39:49.400Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x4c21bbdcd7c508853a55c134f242cdebfe5eeb25333dcef6065dffb9a5de14b1",
+      "nativeDecreaseGEN": "1",
+      "nativeTransferVerified": true,
+      "execution": "SUCCESS",
+      "networkAcceptedAt": "2026-10-07T02:39:54.196Z",
+      "networkFinalizedAt": "2026-10-07T02:40:24.115Z",
+      "after": {
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+          "definition_digest": "5ba5a5a4aeff763ef75697aa4b822ebe038f0d9a3ad37df82c822447c01967a3",
+          "goal": "Analyze the registered record and export a saved copy of it.",
+          "id": "cw-browser-complement-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791425520,
+          "permit": "CONSUMED",
+          "purchase_gen": "2",
+          "review_deadline": 1791511920,
+          "status": "PURCHASED",
+          "use_deadline": 1791598320
+        },
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "nativeContractBalanceGEN": "0",
+        "recipientBalanceGEN": "4.995451941450002972"
+      },
+      "verifiedObservedUTC": "2026-10-07T02:40:27.963Z"
+    }
+  }
+}

@@ -65,13 +65,19 @@ canonical agreement reads through the deployed same-origin API proxy.
   one local five-validator integration case, 14 frontend adapter/wallet cases
   and 17 UI cases. GenVM lint recognizes one class and 17 methods; TypeScript
   and production build pass.
-- Chrome local and production frontends read the actual archived agreement, its
-  grants and coverage through the same-origin proxy. This is browser **read** proof.
-  An OKX-signed envelope reverted before contract execution; a successful browser
-  lifecycle remains pending. Script signing is separate.
-- [Public CI passed](https://github.com/duclucky/coverweave-genlayer/actions/runs/37491951797)
-  at commit `f27199c`; later revisions require their own successful run.
-  External adoption remains pending.
+- Chrome local and production frontends read canonical agreement state through
+  the same-origin proxy. [In-app OKX buyer proof](docs/evidence/studio-dev/browser-wallet.json)
+  records five FINALIZED/SUCCESS writes: purchase, assent, coverage review,
+  one-use permit consumption and archive. Issuer offers, assents and withdrawals
+  are [script-signed peer evidence](docs/evidence/studio-dev/browser-peers.json).
+  The earlier reverted purchase is retained and excluded from successful counts.
+- [Global canonical verification](docs/evidence/studio-dev/final-canonical.json):
+  five CLOSED bundles, 46 successful finalized intelligent transactions,
+  10 GEN received and withdrawn, zero liability and native balance, source parity.
+  Native funding is separate; browser recovery/retry and external adoption are unproven.
+- [Public CI](https://github.com/duclucky/coverweave-genlayer/actions/workflows/ci.yml)
+  runs the pinned checks on each public revision. Hosting and wallet signing
+  revisions are recorded separately in the evidence.
 
 ## Run locally
 
