@@ -75,7 +75,7 @@ canonical agreement reads through the deployed same-origin API proxy.
   five CLOSED bundles, 46 successful finalized intelligent transactions,
   10 GEN received and withdrawn, zero liability and native balance, source parity.
   Native funding is separate; browser recovery/retry and external adoption are unproven.
-- [Public CI](https://github.com/duclucky/coverweave-genlayer/actions/workflows/ci.yml)
+- [Public CI](https://github.com/duclucky/coverweave-genlayer/actions/workflows/check.yml)
   runs the pinned checks on each public revision. Hosting and wallet signing
   revisions are recorded separately in the evidence.
 
