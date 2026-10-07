@@ -118,8 +118,9 @@ action with finality and reload handling; its tests are not substitutes for real
 browser signing. Retry is capped at two reviews and failed evidence cannot pay.
 
 The MVP supports exactly two issuers, ASCII grants and a fixed 2-GEN purchase.
-Only the complementary live lifecycle has network proof; other coalition classes,
-refund/expiry and adversarial cases have local test proof. The permit has no
+Complementary and dummy allocation, no-cover refund and pending-purchase expiry recovery
+have live network proof, including native withdrawals and closure. Other coalition
+classes, semantic retries and adversarial rejection have local test proof. The permit has no
 external enforcement gateway. ODRL workspaces, permission brokers and DAO access
 flows are proposed consumers, not adoption claims. Studio Dev is the only deployed
 network. The frontend bundle-size warning remains a performance limitation.

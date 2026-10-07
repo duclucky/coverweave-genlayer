@@ -1,6 +1,6 @@
 # Frontend and hosting evidence
 
-Verified on 2026-10-06. Live app: https://coverweave-genlayer.vercel.app
+Verified on 2026-10-06; wallet diagnosis updated 2026-10-07. Live app: https://coverweave-genlayer.vercel.app
 
 Vercel project `coverweave-genlayer`: framework Vite, root `frontend`, build
 `npm run build`, output `dist`, Node 24.x, source files outside root enabled.
@@ -50,3 +50,12 @@ purchase with intercepted provider I/O. They do not prove actual wallet signing.
 The finalized Studio lifecycle is script-signed evidence. Browser-wallet lifecycle
 remains **PENDING_REAL_EVIDENCE**, so Gate 13 execution and submission readiness
 are not claimed. No external adoption is claimed.
+
+On 2026-10-07 the current Chrome profile listed OKX only. Its own-app connection
+request rejected with EIP-1193 code 4001; the provider returned no account. This
+is account-access rejection, not signing or an onchain failure. The production
+app now explains how to approve account access and retry. A component regression
+first failed on the absent guidance, then passed; all 168 local cases pass.
+Production deployment `dpl_C5n5uk9HsT7gTr9S9L4K26HTF57B` was READY, and Chrome
+displayed the exact new guidance after a real connection attempt. This proves
+error recovery presentation only. It does not close the browser execution gap.

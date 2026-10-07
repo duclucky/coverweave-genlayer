@@ -89,3 +89,27 @@ Observed after the loopback-default/owned-fixture repair: `113 passed in 27.05s`
 No Studio RPC writes are used by local tests. The scenario recovery tests also
 prove original IDs/deadlines survive a rerun and recovery follows actual
 canonical credits, including an unexpected but valid settled vector.
+
+## Four-source authority audit, 2026-10-07
+
+Sources cross-checked: the exact deployed `contracts/coverweave.py`, current
+168-case check output, safe Studio journal/canonical views, and README/spec/UI
+claims. One recognized contract has nine writes and eight views. The deployed
+source hash and method count match; no replacement runtime or address is used.
+
+| Authority-matrix row | Deterministic and semantic trace | Negative proof | Canonical/live evidence |
+| --- | --- | --- | --- |
+| Buyer goal and roles | `open_bundle` fixes sender, unique entity, three roles, exact 2 GEN and strict ordered deadlines; `_definition` binds network, address, entity, policy and goal | `test_open_requires_exact_purchase_and_unique_id`, `test_invalid_roles_cannot_accept_purchase`, eight `test_valid_hash_wrong_canonical_binding_rejected` variants; unchanged accounting | `get_bundle`, `get_accounting`; distinct authenticated actors and 2-GEN deposits in the safe Studio journal |
+| Issuer constitutive grants | `offer_grant` authenticates exact issuer slot, rejects overwrite and late input; definition is recomputed before ratification/review; prose has no payee/amount authority | `test_authentic_bytes_from_stranger_cannot_offer_or_assent`, isolation, wrong-slot binding, injection containment | `get_grant`, `get_bundle`; actual immutable A/B offers before network review |
+| Three-party assent | `ratify_bundle` requires membership, both grants, exact complete digest, unset own flag and own clock gate; review requires assents=7 | wrong actor/entity/version/network/deadline digests, duplicate assent and stale-phase boundary tests | Canonical assents=7 in complementary and no-cover cases, each with three actor-signed transactions |
+| Semantic consequence | `review_bundle` calls `run_nondet_default(leader, validator)`; validator independently replays exact authenticated terms; `_result` validates context, fixed three classes and monotonicity before `_allocate`; code alone derives shares/permit/refund | `test_fixed_consequence_and_independent_validator`, malformed/extra/non-monotone output, forced invalid accepted result and unavailable context; rejection preserves state or explicitly allowed RETRYABLE without credit/permit | `get_attempt`, credits, permit and accounting; live I/I/C yields 1/1 GEN and consumed permit; I/I/I yields buyer refund; exact native withdrawals and closure |
+| Dated external context | `_semantic_judgment` fetches only the fixed W3C dated URL, bounds content and checks status/version; context explains terminology and authenticates no external ownership/work | wrong version, 503, empty context produce non-penalizing RETRYABLE; caller cannot select another origin | Live attempts have context_ok=true; source outage and retry limits have local negative proof only |
+
+The prose-injection test uses mocked semantic output: it proves deterministic
+containment and unchanged locked authority, not immunity of a real model to all
+injections. Root-cause/dependency classification is outside this coalition schema;
+invalid coverage/classes and conservation are the relevant settlement invariants.
+No authenticated external ownership, service delivery or usage is claimed.
+Browser read proof and script-signed network writes remain distinct. All nine UI
+actions have wrapper/control/test/finality/reload paths, but actual browser-wallet
+execution remains pending and blocks Projects completion and submission.

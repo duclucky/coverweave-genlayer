@@ -279,7 +279,7 @@ No action accepts externally computed shares, verdicts or arbitrary recipients.
 | READY | Check coverage | review_bundle | BundleDetail contextual review | Review command/reload + coverage rendering | Local UI PASS; live script consensus PASS; browser signing PENDING |
 | RETRYABLE | Retry coverage | review_bundle | BundleDetail retry label | Retry command/reload + bounds tests | Local UI PASS; live retry/failure proof PENDING |
 | PURCHASED, AVAILABLE | Use permission | consume_permit | BundleDetail buyer action | Consume command/reload and equality tests | Local UI PASS; real browser buyer PENDING |
-| Pending and expired | Recover purchase | refund_expired | BundleDetail recovery action | Refund command/reload and stale-boundary test | Local UI PASS; live recovery PENDING |
+| Pending and expired | Recover purchase | refund_expired | BundleDetail recovery action | Refund command/reload and stale-boundary test | Local UI PASS; script expiry refund and native withdrawal PASS; browser signing PENDING |
 | PURCHASED, unused expired permit | Expire permission | expire_permit | BundleDetail recovery action | Expiry command/reload and equality tests | Local UI PASS; live recovery PENDING |
 | Terminal, positive own credit | Withdraw GEN | withdraw_credit | BundleDetail / Credits | Own-share command/reload test | Local UI PASS; script native balance/recipient proof PASS; browser signing PENDING |
 | Terminal, zero liability, no live permit | Archive agreement | close_bundle | BundleDetail buyer action | Close command/reload and accounting gate test | Local UI PASS; script canonical CLOSED PASS; browser signing PENDING |
@@ -466,7 +466,7 @@ negative payable tests. Cross-bundle isolation and 32-row pagination.
 Deployment parser fixtures cover raw Studio and normalized SDK receipt shapes,
 with SUCCESS required separately from accepted/finalized. Real-SDK selected
 account adapter regression, browser local RPC and built app required. Current
-20 local frontend tests are baseline, expand failures/finality as wiring lands.
+30 local frontend cases now cover adapter/provider behavior and UI journeys.
 Run npm run check after relevant changes; bounded unsigned smoke before real
 2 GEN lifecycle; gltest/integration using matched supported target capability.
 Do not fake unsupported mocks or silently skip required integration checks.
@@ -475,13 +475,13 @@ Do not fake unsupported mocks or silently skip required integration checks.
 
 | Claim | Contract method/state | View/read | Test | Network evidence |
 | --- | --- | --- | --- | --- |
-| Coalition meanings drive marginal shares | review_bundle/PURCHASED | get_attempt, get_credit | Four vectors + semantic replay + conservation | evidence/studio-dev/lifecycle.md: live complementary I/I/C and 1 GEN each PASS; other vectors local only |
+| Coalition meanings drive marginal shares | review_bundle/PURCHASED | get_attempt, get_credit | Four vectors + semantic replay + conservation | evidence/studio-dev/lifecycle.md: live I/I/C gives 1/1 GEN; C/I/C gives 2/0 GEN; all recovered/closed PASS; other vectors local only |
 | Exact roles and all-party agreement | offer_grant, ratify_bundle/READY | get_grant, get_bundle | Wrong actor/entity/digest/version tripwires | evidence/studio-dev/deployment.json: three distinct signed actors, immutable offers, assents=7 PASS |
 | One buyer protocol use | consume_permit/CONSUMED | get_permit | Wrong holder, boundary and duplicate | Script FINALIZED/CONSUMED PASS in lifecycle.md; actual browser-signed consume pending |
-| Complete no-cover/expiry recovery | review_bundle/refund_expired/REFUNDED | get_credit, get_accounting | No-cover and partial/full assent expiry | PENDING finalized refund, withdrawal/native balance proof |
+| Complete no-cover/expiry recovery | review_bundle/refund_expired/REFUNDED | get_credit, get_accounting | No-cover and partial/full assent expiry | deployment.json: gap and expiry CLOSED, buyer withdrew 2 GEN each, exact native decreases and zero liability PASS; browser recovery pending |
 | Exact value exit and closure | withdraw_credit, close_bundle/CLOSED | Credit, accounting, native balances | Debit ordering, duplicate, orphan prevention | lifecycle.md and deployment.json: two exact native decreases of 1 GEN, recipient balance deltas, CLOSED, zero accounting/native balance PASS |
 | Full product uses actual chain | All nine writes and canonical reads | Typed adapter, bounded views | UI exact-command/reload tests + real-SDK regression | frontend.md: local and hosted canonical reads and proxy PASS; real browser wallet writes pending |
-| Builder reuse without judge fork | Documented single-contract interface | Bundle/grant/attempt/permit/credit views | Isolation + adapter compatibility | PENDING public source/CI/API; consumers proposed, adoption not claimed |
+| Builder reuse without judge fork | Documented single-contract interface | Bundle/grant/attempt/permit/credit views | Isolation + adapter compatibility | Public source and CI run 37553212901 PASS; source/schema parity verified; consumers proposed, adoption not claimed |
 
 ## Analogue and differentiation matrix
 
@@ -530,18 +530,19 @@ Category Projects; do not weaken requirements or switch category.
 - [x] Independent semantic judgment and deterministic consequential settlement.
 - [x] Direct/adversarial/metadata/parser tests and matched integration checks PASS.
 - [x] npm run check includes contract, tests, real-SDK wallet regression, typecheck/build.
-- [ ] Finalized Studio Dev consequential lifecycle, retry/recovery and exact GEN proof.
+- [x] Finalized Studio Dev consequential lifecycle and recovery with exact GEN proof: complement, dummy, no-cover and pending expiry; semantic retry remains local-only proof.
 - [ ] Full real browser-wallet user workflow, canonical reads and browser RPC proof.
 - [ ] Every claimed browser action has wrapper/control/test/finality/reload/evidence.
 - [x] Meaningful multi-page product preserves baseline and exposes only user needs.
-- [ ] Public sanitized repository with meaningful commits and successful CI.
+- [x] Public sanitized repository with meaningful commits and successful CI (37553212901); final revision CI remains separately required.
 - [x] Verified Vercel HTTP 200 app, real address/explorer links and final README.
 - [ ] Four-source audit, current Portal packet/report and honest submission evidence.
-- [ ] Full grading command -Project coverweave -Category projects => NO BLOCKER.
+- [x] Full grading command -Project coverweave -Category projects => 0 BLOCKER, 1 WARN; npm check and standalone gltest PASS, no SkipDynamic (2026-10-07).
 - [ ] Final master reread item by item, postmortem and registry updated; uncertainty listed.
 
-Unchecked means PENDING, not skipped. Local frontend baseline is verified;
-network, publishing, browser lifecycle and final acceptance remain pending.
+Unchecked means PENDING, not skipped. Local checks, live script consequence and
+recovery, public source and hosted canonical reads are verified. Browser-wallet
+lifecycle, final revision audit/CI and final acceptance remain pending.
 
 ## Honest limitations
 

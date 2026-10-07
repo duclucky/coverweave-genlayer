@@ -1,6 +1,7 @@
 # Studio Dev consequential lifecycle
 
-Verified on 2026-10-06. Network: Studio Dev, chain 61997. One active deployment:
+Verified on 2026-10-06, recovery evidence added 2026-10-07. Network: Studio Dev,
+chain 61997. One active deployment:
 `0xe4F0378799b47e7AE05F64d93dFE6590F68C5833`.
 
 [Contract Explorer](https://explorer-studio-dev.genlayer.com/address/0xe4F0378799b47e7AE05F64d93dFE6590F68C5833)
@@ -8,8 +9,10 @@ Verified on 2026-10-06. Network: Studio Dev, chain 61997. One active deployment:
 Commands: `node scripts/studio-run.mjs deploy`,
 `node scripts/studio-run.mjs lifecycle`, `node scripts/studio-enrich.mjs`.
 
-Observed: 12 recorded transactions FINALIZED with execution SUCCESS. The safe
-receipt summary is **Status: FINALIZED; Result: SUCCESS** for all 12 transactions.
+The original lifecycle has 12 recorded transactions FINALIZED with execution
+SUCCESS. Expiry and no-cover recovery add 13 verified transactions, and dummy
+allocation adds 10. The safe receipt summary is **Status: FINALIZED; Result:
+SUCCESS** for these 35 transactions.
 [deployment journal](deployment.json) binds the exact source commit, SHA-256,
 runner/API, addresses, public actors, transaction links, server accepted/finalized
 timestamps, and canonical before/after views. Source parity and all 17 deployed
@@ -54,11 +57,69 @@ Final `get_bundle` status is CLOSED, permit CONSUMED. Final `get_accounting`:
 
 Close finalized at `2026-10-06T15:23:42.622Z`. Native contract balance: 0 GEN.
 
+## No-cover and expiry recovery
+
+Commands: `node scripts/studio-run.mjs lifecycle expiry`,
+`node scripts/studio-run.mjs lifecycle gap`, then read-only
+`node scripts/studio-enrich.mjs` (`enrichedTransactions: 25`, `writesPerformed: 0`).
+
+| Scenario | Canonical judgment/recovery | Native before / after buyer withdrawal | Exact decrease | Recipient net increase | Final state |
+| --- | --- | --- | --- | --- | --- |
+| `cw-studio-expiry-20261007-01` | Pending agreement passed canonical review deadline; buyer called `refund_expired` | 2 / 0 GEN | 2 GEN | 1.999873694499999177 GEN | CLOSED, zero liability |
+| `cw-studio-gap-20261007-01` | Actual I/I/I, context_ok=true, attempt 0 REFUNDED | 2 / 0 GEN | 2 GEN | 1.999873694499999177 GEN | CLOSED, zero liability |
+
+Both final `get_accounting` views show received=withdrawn=2 GEN and
+locked=credits=liability=0 GEN. Each native transfer is independently verified;
+recipient net increase includes its transaction fee. No funding occurred.
+The expiry driver rerun recovered the saved CLOSED state with zero writes.
+
+The gap goal requires reading the record and deleting its archived copy. A
+grants reading and B grants export, so the actual live review found no coalition
+covers deletion. All three parties first ratified the complete definition.
+Review transaction
+`0xbe1f6ac65c9d26fd12c55fa9c82f91bdc24343839f48bb470215abb4ca5b391a`
+initially exposed an intermediate PROPOSING/ERROR observation. The driver
+stopped, and read-only inspection subsequently proved this same transaction
+FINALIZED/SUCCESS with a canonical refund. No duplicate review was sent.
+The journal retains the intermediate observation separately; only the actual
+final receipt and state authorize recovery. Buyer withdrew and archived.
+Gap close finalized `2026-10-07T00:46:32.280Z`; expiry close finalized
+`2026-10-07T00:37:12.330Z`. Safe transaction links and server times are in the journal.
+
+## Dummy issuer receives zero GEN
+
+Command: `node scripts/studio-run.mjs lifecycle dummy`.
+Bundle `cw-studio-dummy-20261007-01` uses the goal "Analyze AND export the
+registered record." A grants both actions; B grants dashboard background-color
+changes. All three actors ratified this exact definition before live review.
+Actual `get_attempt` output is C/I/C, context_ok=true, index=0, PURCHASED.
+No expectation vector was supplied to the contract or model as a verdict.
+
+Contract rules credited A with 2 GEN and B with 0 GEN. Buyer consumed the
+one-use permit. A's withdrawal decreased native contract balance exactly
+2 GEN, from 2 to 0 GEN, and its net balance increased
+1.999873694249999177 GEN after the transaction fee. No zero-credit withdrawal
+was attempted for B. Final canonical state is CLOSED, permit CONSUMED;
+received=withdrawn=2 GEN, locked=credits=liability=0 GEN, native balance=0 GEN.
+Chrome read the same live terms, C/I/C coverage and 2/0-GEN remaining credits
+through the production adapter before withdrawal; browser signing remains distinct.
+Close finalized `2026-10-07T01:00:49.966Z`. A subsequent read-only enrichment
+verified all 35 receipts and their server accepted/finalized timestamps, with
+zero writes. Rerunning each of the four lifecycle commands recovered CLOSED
+state and printed `writesPerformed: 0`.
+
+Fresh `get_global_accounting` at LATEST_FINAL and native `eth_getBalance` showed
+four bundles, received=withdrawn=8 GEN, locked=credits=liability=0 GEN, and native
+balance=0 GEN. The same read verified exact deployed source parity again.
+This observation is saved as `latestCanonicalVerification` in the safe journal;
+it is an observation time, not a transaction's server finalization time.
+
 ## Proof boundaries
 
 This lifecycle was signed by scripts using authorized existing EOAs. It does not
 prove a browser-wallet write. Browser signing, hosted reads and external adoption
 are separate evidence items. The local negative tests cover all nine write methods,
-temporal boundaries, retry, gap/refund, and invalid semantic output; those local
-cases are not additional live Studio transactions. No external gateway currently
+temporal boundaries, retry and invalid semantic output; those local cases are
+not additional live Studio transactions. Gap/refund and pending expiry now have
+the separate real transactions documented above. No external gateway currently
 consumes this protocol permit.

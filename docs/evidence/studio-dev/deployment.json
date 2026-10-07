@@ -789,6 +789,1556 @@
       "userValueGEN": "0",
       "networkAcceptedAt": "2026-10-06T15:23:11.805Z",
       "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "expiry-open": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754855200010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": false,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "0",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "0",
+        "recipientBalanceGEN": "40.284110359832852591"
+      },
+      "status": "FINALIZED",
+      "hash": "0x2c06ea47671a1ff2c27bc1b2f1a31f278c47ed695573d0a2b1aa4784e097fc27",
+      "submittedAtObservedUTC": "2026-10-07T00:31:59.593Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x2c06ea47671a1ff2c27bc1b2f1a31f278c47ed695573d0a2b1aa4784e097fc27",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:32:45.507Z",
+      "networkFinalizedAt": "2026-10-07T00:32:43.395Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record.",
+          "id": "cw-studio-expiry-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791333234,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791333294,
+          "status": "OPEN",
+          "use_deadline": 1791333354
+        },
+        "recipientBalanceGEN": "38.284031726332851768"
+      },
+      "userValueGEN": "2",
+      "networkAcceptedAt": "2026-10-07T00:32:12.573Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "expiry-refund": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754840800010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record.",
+          "id": "cw-studio-expiry-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791333234,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791333294,
+          "status": "OPEN",
+          "use_deadline": 1791333354
+        },
+        "recipientBalanceGEN": "38.284031726332851768"
+      },
+      "status": "FINALIZED",
+      "hash": "0xcf4178ee11844c3a401ed1e657a946d97b9a53eaad8c5d66cfd0302d0ff0a324",
+      "submittedAtObservedUTC": "2026-10-07T00:35:03.024Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xcf4178ee11844c3a401ed1e657a946d97b9a53eaad8c5d66cfd0302d0ff0a324",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:35:38.662Z",
+      "networkFinalizedAt": "2026-10-07T00:35:36.366Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "2",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record.",
+          "id": "cw-studio-expiry-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791333234,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791333294,
+          "status": "REFUNDED",
+          "use_deadline": 1791333354
+        },
+        "recipientBalanceGEN": "38.283953095832850945"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:35:06.225Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "expiry-withdraw_credit-buyer": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.001212525600010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "2",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record.",
+          "id": "cw-studio-expiry-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791333234,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791333294,
+          "status": "REFUNDED",
+          "use_deadline": 1791333354
+        },
+        "recipientBalanceGEN": "38.283953095832850945",
+        "creditGEN": "2"
+      },
+      "status": "FINALIZED",
+      "hash": "0xaeffc333bb0c9c12517fd434077e2519050a2535c4ddf5f7cb07113d9bd168d2",
+      "submittedAtObservedUTC": "2026-10-07T00:35:50.534Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xaeffc333bb0c9c12517fd434077e2519050a2535c4ddf5f7cb07113d9bd168d2",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:36:28.732Z",
+      "networkFinalizedAt": "2026-10-07T00:36:24.479Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record.",
+          "id": "cw-studio-expiry-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791333234,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791333294,
+          "status": "REFUNDED",
+          "use_deadline": 1791333354
+        },
+        "recipientBalanceGEN": "40.283826790332850122"
+      },
+      "userValueGEN": "0",
+      "nativeDecreaseGEN": "2",
+      "recipientNetBalanceDeltaGEN": "1.999873694499999177",
+      "nativeTransferVerified": true,
+      "networkAcceptedAt": "2026-10-07T00:35:54.327Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "expiry-close_bundle-buyer": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754831200010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record.",
+          "id": "cw-studio-expiry-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791333234,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791333294,
+          "status": "REFUNDED",
+          "use_deadline": 1791333354
+        },
+        "recipientBalanceGEN": "40.283826790332850122"
+      },
+      "status": "FINALIZED",
+      "hash": "0x7c1c85f48dc2bab9f57b6b2c77fe27cf304f983aadbe98ca83e0b50be47f9ac0",
+      "submittedAtObservedUTC": "2026-10-07T00:36:37.079Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x7c1c85f48dc2bab9f57b6b2c77fe27cf304f983aadbe98ca83e0b50be47f9ac0",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:37:14.683Z",
+      "networkFinalizedAt": "2026-10-07T00:37:12.330Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record.",
+          "id": "cw-studio-expiry-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791333234,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791333294,
+          "status": "CLOSED",
+          "use_deadline": 1791333354
+        },
+        "recipientBalanceGEN": "40.283748161832849299"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:36:42.180Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-open": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754857600010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": false,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "0",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "0",
+        "recipientBalanceGEN": "40.283748161832849299"
+      },
+      "status": "FINALIZED",
+      "hash": "0x5fc4b9d2c900ce70a34713e91f8e692daed7d837824a96db55179b8150eee7cf",
+      "submittedAtObservedUTC": "2026-10-07T00:37:55.029Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x5fc4b9d2c900ce70a34713e91f8e692daed7d837824a96db55179b8150eee7cf",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:44:53.431Z",
+      "networkFinalizedAt": "2026-10-07T00:38:30.327Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "38.283669527832848476"
+      },
+      "userValueGEN": "2",
+      "networkAcceptedAt": "2026-10-07T00:38:00.003Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-offer-issuerA": {
+      "actor": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "feeQuoteGEN": "0.000754832400010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "29.657208275666625896"
+      },
+      "status": "FINALIZED",
+      "hash": "0x572a5b559c378414478afbed338cc4aee1c4878f62c76b4f5637a5ed6437fdc9",
+      "submittedAtObservedUTC": "2026-10-07T00:38:43.121Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x572a5b559c378414478afbed338cc4aee1c4878f62c76b4f5637a5ed6437fdc9",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:44:53.844Z",
+      "networkFinalizedAt": "2026-10-07T00:39:18.392Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "29.657129646916625073"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:38:48.229Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-offer-issuerB": {
+      "actor": "0x45248be151F7f7e230150db23774733Cd966Eb45",
+      "feeQuoteGEN": "0.000754836000010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "3.996050020950008733"
+      },
+      "status": "FINALIZED",
+      "hash": "0xbb45d685ba6a56e3a96fd017cfb901a2496fd995d1fd3e49b2d5e4949321aaef",
+      "submittedAtObservedUTC": "2026-10-07T00:39:28.742Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xbb45d685ba6a56e3a96fd017cfb901a2496fd995d1fd3e49b2d5e4949321aaef",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:44:54.245Z",
+      "networkFinalizedAt": "2026-10-07T00:40:01.142Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "3.99597139145000791"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:39:30.996Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-ratify-buyer": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754830000010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "38.283669527832848476"
+      },
+      "status": "FINALIZED",
+      "hash": "0xf306ac384b88ed7eb1689802c6f0fd4b991ad215a13a221180b0cb055cffc23a",
+      "submittedAtObservedUTC": "2026-10-07T00:40:12.631Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xf306ac384b88ed7eb1689802c6f0fd4b991ad215a13a221180b0cb055cffc23a",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:44:55.433Z",
+      "networkFinalizedAt": "2026-10-07T00:40:51.240Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 1,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "38.283590899582847653"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:40:18.842Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-ratify-issuerA": {
+      "actor": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "feeQuoteGEN": "0.000754830000010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 1,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "29.657129646916625073"
+      },
+      "status": "FINALIZED",
+      "hash": "0xd99090a33d293a16fb32b9031c0dc8e5864332098791e6fff5404230ff3f39e9",
+      "submittedAtObservedUTC": "2026-10-07T00:41:03.755Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xd99090a33d293a16fb32b9031c0dc8e5864332098791e6fff5404230ff3f39e9",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:44:56.041Z",
+      "networkFinalizedAt": "2026-10-07T00:41:39.795Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 3,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "29.65705101866662425"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:41:08.914Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-ratify-issuerB": {
+      "actor": "0x45248be151F7f7e230150db23774733Cd966Eb45",
+      "feeQuoteGEN": "0.000754831200010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 3,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "OPEN",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "3.99597139145000791"
+      },
+      "status": "FINALIZED",
+      "hash": "0x7bf14b54f6c2a2642084f2e3a6f296e20d91ffcfe163209e5bbffd1166058910",
+      "submittedAtObservedUTC": "2026-10-07T00:41:50.963Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x7bf14b54f6c2a2642084f2e3a6f296e20d91ffcfe163209e5bbffd1166058910",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:44:56.439Z",
+      "networkFinalizedAt": "2026-10-07T00:42:27.820Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "READY",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "3.995892762950007087"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:41:57.677Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-review-0": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000757118400010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "READY",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "38.283590899582847653"
+      },
+      "status": "FINALIZED",
+      "hash": "0xbe1f6ac65c9d26fd12c55fa9c82f91bdc24343839f48bb470215abb4ca5b391a",
+      "submittedAtObservedUTC": "2026-10-07T00:42:40.276Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xbe1f6ac65c9d26fd12c55fa9c82f91bdc24343839f48bb470215abb4ca5b391a",
+      "execution": "SUCCESS",
+      "lastObservedUTC": "2026-10-07T00:43:04.754Z",
+      "intermediateExecutionObservation": {
+        "status": "PROPOSING",
+        "execution": "ERROR",
+        "observedUTC": "2026-10-07T00:43:04.754Z"
+      },
+      "networkAcceptedAt": "2026-10-07T00:43:10.962Z",
+      "networkFinalizedAt": "2026-10-07T00:43:41.120Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-withdraw_credit-buyer": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.001212525600010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "2",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "REFUNDED",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "38.283354486582845538",
+        "creditGEN": "2"
+      },
+      "status": "FINALIZED",
+      "hash": "0x14e5329d262fb9b09460b7aec4506821ae082cc7a939670fa9b8ff639d80ab79",
+      "submittedAtObservedUTC": "2026-10-07T00:45:09.292Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x14e5329d262fb9b09460b7aec4506821ae082cc7a939670fa9b8ff639d80ab79",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:45:47.326Z",
+      "networkFinalizedAt": "2026-10-07T00:45:44.211Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "REFUNDED",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "40.283228181082844715"
+      },
+      "userValueGEN": "0",
+      "nativeDecreaseGEN": "2",
+      "recipientNetBalanceDeltaGEN": "1.999873694499999177",
+      "nativeTransferVerified": true,
+      "networkAcceptedAt": "2026-10-07T00:45:14.060Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "gap-close_bundle-buyer": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754831200010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "REFUNDED",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "40.283228181082844715"
+      },
+      "status": "FINALIZED",
+      "hash": "0x7cab0d78e59bde2acec611e2680130b71826b8aa3cf82cf6a9b335278437492b",
+      "submittedAtObservedUTC": "2026-10-07T00:45:56.196Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x7cab0d78e59bde2acec611e2680130b71826b8aa3cf82cf6a9b335278437492b",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:46:34.987Z",
+      "networkFinalizedAt": "2026-10-07T00:46:32.280Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+          "goal": "Read the registered record and delete its archived copy.",
+          "id": "cw-studio-gap-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337069,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791340669,
+          "status": "CLOSED",
+          "use_deadline": 1791344269
+        },
+        "recipientBalanceGEN": "40.283149552582843892"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:46:02.135Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-open": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754858800010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": false,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "0",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "0",
+        "recipientBalanceGEN": "40.283149552582843892"
+      },
+      "status": "FINALIZED",
+      "hash": "0x2a08c1c06878f3ece6918ddffff698b90e0672d250116627472c81a5fe7ff096",
+      "submittedAtObservedUTC": "2026-10-07T00:52:55.421Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x2a08c1c06878f3ece6918ddffff698b90e0672d250116627472c81a5fe7ff096",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:53:37.782Z",
+      "networkFinalizedAt": "2026-10-07T00:53:31.390Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.283070918332843069"
+      },
+      "userValueGEN": "2",
+      "networkAcceptedAt": "2026-10-07T00:53:01.244Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-offer-issuerA": {
+      "actor": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "feeQuoteGEN": "0.000754833600010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "29.65705101866662425"
+      },
+      "status": "FINALIZED",
+      "hash": "0x0b2b41c174085c90cfa0ad8afb57e11663873ffebc146f2559c961ac2042a58c",
+      "submittedAtObservedUTC": "2026-10-07T00:53:45.024Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x0b2b41c174085c90cfa0ad8afb57e11663873ffebc146f2559c961ac2042a58c",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:54:24.965Z",
+      "networkFinalizedAt": "2026-10-07T00:54:19.207Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "29.656972389666623427"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:53:49.053Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-offer-issuerB": {
+      "actor": "0x45248be151F7f7e230150db23774733Cd966Eb45",
+      "feeQuoteGEN": "0.000754836000010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "3.995892762950007087"
+      },
+      "status": "FINALIZED",
+      "hash": "0xe42fee060b74c59919721d05a4abf03bba79ae4d21f55dd5caf5a66822a26af2",
+      "submittedAtObservedUTC": "2026-10-07T00:54:32.757Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xe42fee060b74c59919721d05a4abf03bba79ae4d21f55dd5caf5a66822a26af2",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:55:11.344Z",
+      "networkFinalizedAt": "2026-10-07T00:55:07.610Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "3.995814133450006264"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:54:37.432Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-ratify-buyer": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754830000010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 0,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.283070918332843069"
+      },
+      "status": "FINALIZED",
+      "hash": "0x8520586e7719b27bbd4fa5dc38e27b5ebd7877bef8247811b2b6ac4261840009",
+      "submittedAtObservedUTC": "2026-10-07T00:55:20.270Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x8520586e7719b27bbd4fa5dc38e27b5ebd7877bef8247811b2b6ac4261840009",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:56:08.699Z",
+      "networkFinalizedAt": "2026-10-07T00:56:05.871Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 1,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.282992290082842246"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:55:35.697Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-ratify-issuerA": {
+      "actor": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "feeQuoteGEN": "0.000754830000010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 1,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "29.656972389666623427"
+      },
+      "status": "FINALIZED",
+      "hash": "0xe27c834a7ceaf3a82dde2aee629eae203d553baf4d70c97ce65f7c60284bc5b4",
+      "submittedAtObservedUTC": "2026-10-07T00:56:16.200Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xe27c834a7ceaf3a82dde2aee629eae203d553baf4d70c97ce65f7c60284bc5b4",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:56:53.431Z",
+      "networkFinalizedAt": "2026-10-07T00:56:49.167Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 3,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "29.656893761416622604"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:56:19.030Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-ratify-issuerB": {
+      "actor": "0x45248be151F7f7e230150db23774733Cd966Eb45",
+      "feeQuoteGEN": "0.000754832400010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 3,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "OPEN",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "3.995814133450006264"
+      },
+      "status": "FINALIZED",
+      "hash": "0x04eb8491e797e4db9f8880d78b3f61e2273efe122d566c6963b79a8e74a0c548",
+      "submittedAtObservedUTC": "2026-10-07T00:57:00.837Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x04eb8491e797e4db9f8880d78b3f61e2273efe122d566c6963b79a8e74a0c548",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:57:41.897Z",
+      "networkFinalizedAt": "2026-10-07T00:57:37.353Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "READY",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "3.995735504700005441"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:57:07.226Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-review-0": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000756928800010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "2",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 0,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "NONE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "READY",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.282992290082842246"
+      },
+      "status": "FINALIZED",
+      "hash": "0x5eb26ac289c9fafe3ef13976bb1a9ce1218318adfd62a2c4f418918713d6b46f",
+      "submittedAtObservedUTC": "2026-10-07T00:57:52.663Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x5eb26ac289c9fafe3ef13976bb1a9ce1218318adfd62a2c4f418918713d6b46f",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:58:31.922Z",
+      "networkFinalizedAt": "2026-10-07T00:58:30.482Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "2",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "AVAILABLE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "PURCHASED",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.282913440582841423"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:58:00.324Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-consume_permit-buyer": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754831200010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "2",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "AVAILABLE",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "PURCHASED",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.282913440582841423"
+      },
+      "status": "FINALIZED",
+      "hash": "0x4d4f50956ada59afa90921c55bb9cebf4d68354d76adc89a09ab511e0b307af9",
+      "submittedAtObservedUTC": "2026-10-07T00:58:44.843Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x4d4f50956ada59afa90921c55bb9cebf4d68354d76adc89a09ab511e0b307af9",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T00:59:24.150Z",
+      "networkFinalizedAt": "2026-10-07T00:59:18.455Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "2",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "CONSUMED",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "PURCHASED",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.2828348120828406"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T00:58:48.291Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-withdraw_credit-issuerA": {
+      "actor": "0x45aD397c438397A702B53a7499a78D08961D39Db",
+      "feeQuoteGEN": "0.001212526800010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "2",
+          "exists": true,
+          "liability_gen": "2",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "0"
+        },
+        "contractBalanceGEN": "2",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "CONSUMED",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "PURCHASED",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "29.656893761416622604",
+        "creditGEN": "2"
+      },
+      "status": "FINALIZED",
+      "hash": "0x51103e79b9205ad191fa2272af0b2965aa4b13334ce86587406e4f1f9ef03c9f",
+      "submittedAtObservedUTC": "2026-10-07T00:59:32.913Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x51103e79b9205ad191fa2272af0b2965aa4b13334ce86587406e4f1f9ef03c9f",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T01:00:08.003Z",
+      "networkFinalizedAt": "2026-10-07T01:00:06.865Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "CONSUMED",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "PURCHASED",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "31.656767455666621781"
+      },
+      "userValueGEN": "0",
+      "nativeDecreaseGEN": "2",
+      "recipientNetBalanceDeltaGEN": "1.999873694249999177",
+      "nativeTransferVerified": true,
+      "networkAcceptedAt": "2026-10-07T00:59:36.714Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
+    },
+    "dummy-close_bundle-buyer": {
+      "actor": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+      "feeQuoteGEN": "0.000754831200010352",
+      "before": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "CONSUMED",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "PURCHASED",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.2828348120828406"
+      },
+      "status": "FINALIZED",
+      "hash": "0x228f39546e8cd18c86b4377ebad7f746820f561fb3728c6591e710a9d5cc4680",
+      "submittedAtObservedUTC": "2026-10-07T01:00:16.628Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x228f39546e8cd18c86b4377ebad7f746820f561fb3728c6591e710a9d5cc4680",
+      "execution": "SUCCESS",
+      "finalityObservedUTC": "2026-10-07T01:00:54.654Z",
+      "networkFinalizedAt": "2026-10-07T01:00:49.966Z",
+      "after": {
+        "accounting": {
+          "credits_gen": "0",
+          "exists": true,
+          "liability_gen": "0",
+          "locked_gen": "0",
+          "received_gen": "2",
+          "withdrawn_gen": "2"
+        },
+        "contractBalanceGEN": "0",
+        "bundle": {
+          "assents": 7,
+          "attempt_count": 1,
+          "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+          "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+          "goal": "Analyze AND export the registered record.",
+          "id": "cw-studio-dummy-20261007-01",
+          "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+          "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+          "offer_deadline": 1791337970,
+          "permit": "CONSUMED",
+          "purchase_gen": "2",
+          "review_deadline": 1791341570,
+          "status": "CLOSED",
+          "use_deadline": 1791345170
+        },
+        "recipientBalanceGEN": "38.282756183582839777"
+      },
+      "userValueGEN": "0",
+      "networkAcceptedAt": "2026-10-07T01:00:19.825Z",
+      "timestampSource": "consensus_history monitoring (Unix seconds)"
     }
   },
   "contractAddress": "0xe4F0378799b47e7AE05F64d93dFE6590F68C5833",
@@ -846,5 +2396,169 @@
       "outcome": "PURCHASED",
       "reviewed_at": 1791299947
     }
+  },
+  "demos": {
+    "expiry": {
+      "goal": "Read the registered record.",
+      "terms": [],
+      "expectedClasses": null,
+      "id": "cw-studio-expiry-20261007-01",
+      "offerDeadline": 1791333234,
+      "reviewDeadline": 1791333294,
+      "useDeadline": 1791333354,
+      "recovery": "Actual settled credits -> immutable owners withdraw -> buyer closes; pending expiry -> buyer refund first.",
+      "finalAccounting": {
+        "credits_gen": "0",
+        "exists": true,
+        "liability_gen": "0",
+        "locked_gen": "0",
+        "received_gen": "2",
+        "withdrawn_gen": "2"
+      },
+      "finalBundle": {
+        "assents": 0,
+        "attempt_count": 0,
+        "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "definition_digest": "",
+        "goal": "Read the registered record.",
+        "id": "cw-studio-expiry-20261007-01",
+        "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+        "offer_deadline": 1791333234,
+        "permit": "NONE",
+        "purchase_gen": "2",
+        "review_deadline": 1791333294,
+        "status": "CLOSED",
+        "use_deadline": 1791333354
+      },
+      "finalContractBalanceGEN": "0"
+    },
+    "gap": {
+      "goal": "Read the registered record and delete its archived copy.",
+      "terms": [
+        "The holder may read the registered record.",
+        "The holder may export a saved copy of the registered record."
+      ],
+      "expectedClasses": [
+        "INCOMPLETE",
+        "INCOMPLETE",
+        "INCOMPLETE"
+      ],
+      "id": "cw-studio-gap-20261007-01",
+      "offerDeadline": 1791337069,
+      "reviewDeadline": 1791340669,
+      "useDeadline": 1791344269,
+      "recovery": "Actual settled credits -> immutable owners withdraw -> buyer closes; pending expiry -> buyer refund first.",
+      "attempt": {
+        "classes": [
+          "INCOMPLETE",
+          "INCOMPLETE",
+          "INCOMPLETE"
+        ],
+        "context_ok": true,
+        "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+        "index": 0,
+        "outcome": "REFUNDED",
+        "reviewed_at": 1791333760
+      },
+      "expectedVectorVerified": true,
+      "finalAccounting": {
+        "credits_gen": "0",
+        "exists": true,
+        "liability_gen": "0",
+        "locked_gen": "0",
+        "received_gen": "2",
+        "withdrawn_gen": "2"
+      },
+      "finalBundle": {
+        "assents": 7,
+        "attempt_count": 1,
+        "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "definition_digest": "c14f213a6183890fdac1be939f6aff1ff9d839c15860e5acdc5b3fef2986acf7",
+        "goal": "Read the registered record and delete its archived copy.",
+        "id": "cw-studio-gap-20261007-01",
+        "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+        "offer_deadline": 1791337069,
+        "permit": "NONE",
+        "purchase_gen": "2",
+        "review_deadline": 1791340669,
+        "status": "CLOSED",
+        "use_deadline": 1791344269
+      },
+      "finalContractBalanceGEN": "0"
+    },
+    "dummy": {
+      "goal": "Analyze AND export the registered record.",
+      "terms": [
+        "The holder may analyze and export the registered record.",
+        "The holder may change the dashboard background color."
+      ],
+      "expectedClasses": [
+        "COMPLETE",
+        "INCOMPLETE",
+        "COMPLETE"
+      ],
+      "id": "cw-studio-dummy-20261007-01",
+      "offerDeadline": 1791337970,
+      "reviewDeadline": 1791341570,
+      "useDeadline": 1791345170,
+      "recovery": "Actual settled credits -> immutable owners withdraw -> buyer closes; pending expiry -> buyer refund first.",
+      "attempt": {
+        "classes": [
+          "COMPLETE",
+          "INCOMPLETE",
+          "COMPLETE"
+        ],
+        "context_ok": true,
+        "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+        "index": 0,
+        "outcome": "PURCHASED",
+        "reviewed_at": 1791334672
+      },
+      "expectedVectorVerified": true,
+      "finalAccounting": {
+        "credits_gen": "0",
+        "exists": true,
+        "liability_gen": "0",
+        "locked_gen": "0",
+        "received_gen": "2",
+        "withdrawn_gen": "2"
+      },
+      "finalBundle": {
+        "assents": 7,
+        "attempt_count": 1,
+        "buyer": "0xc495ef51618d03267a1f227afe5b27b38c748272",
+        "definition_digest": "b204b7821f0fc982db52adbcb035bf58504c7cd88bcaba7b3b3ac45fb21b7918",
+        "goal": "Analyze AND export the registered record.",
+        "id": "cw-studio-dummy-20261007-01",
+        "issuer_a": "0x45ad397c438397a702b53a7499a78d08961d39db",
+        "issuer_b": "0x45248be151f7f7e230150db23774733cd966eb45",
+        "offer_deadline": 1791337970,
+        "permit": "CONSUMED",
+        "purchase_gen": "2",
+        "review_deadline": 1791341570,
+        "status": "CLOSED",
+        "use_deadline": 1791345170
+      },
+      "finalContractBalanceGEN": "0"
+    }
+  },
+  "latestCanonicalVerification": {
+    "network": "studio-dev",
+    "chainId": 61997,
+    "contractAddress": "0xe4F0378799b47e7AE05F64d93dFE6590F68C5833",
+    "accounting": {
+      "bundle_count": 4,
+      "credits_gen": "0",
+      "liability_gen": "0",
+      "locked_gen": "0",
+      "received_gen": "8",
+      "withdrawn_gen": "8"
+    },
+    "nativeContractBalanceGEN": "0",
+    "sourceParityVerified": true,
+    "observedUTC": "2026-10-07T01:02:07.403Z",
+    "writesPerformed": 0
   }
 }
