@@ -59,3 +59,31 @@ first failed on the absent guidance, then passed; all 168 local cases pass.
 Production deployment `dpl_C5n5uk9HsT7gTr9S9L4K26HTF57B` was READY, and Chrome
 displayed the exact new guidance after a real connection attempt. This proves
 error recovery presentation only. It does not close the browser execution gap.
+
+## In-app OKX envelope and fee repair, 2026-10-07
+
+At the owner's explicit request the browser switched to Codex's in-app browser.
+The wallet picker detected MetaMask and OKX. OKX exposed buyer
+`0x4e776b88e79c4f82f4e01115dd52c43e0cec6034` on Studio Dev.
+After separately authorized owner funding of 2 GEN plus 1 GEN, native receipts
+and exact balance increases proved a 3-GEN balance. Funding is native EVM
+evidence and is not intelligent-contract consensus evidence.
+
+The owner signed purchase envelope
+`0x07b04c955d1cf3fb9d4ed8859be397d7ef1c20660baa99221d534634decda5a3`.
+Its EVM receipt reverted with the recognized `FeeValueMustBeNonZero` reason.
+Read-only inspection proved the agreement absent, buyer balance 3 GEN and
+native contract balance 0 GEN. There was no successful contract execution.
+Both official Studio Dev RPC hostnames returned the same failure and balances;
+the issue was not resolved by switching networks or resending the purchase.
+
+The frontend now supplies the exact write's Studio profiler fee preset, with a
+1-GEN fee cap, and recognizes reverted EVM envelopes during confirmation.
+The actual-SDK regression reproduced the missing deposit before the repair;
+the read-only resume regression reproduced the indefinite pending display.
+Both pass, along with the safe fee-preset projection and compiled server entry.
+`npm run check`: 170 passed, zero skipped, lint/typecheck/build success.
+Browser successful lifecycle proof remains pending.
+
+Sanitized records: [browser wallet attempts](browser-wallet.json) and
+[native funding](browser-funding.json).

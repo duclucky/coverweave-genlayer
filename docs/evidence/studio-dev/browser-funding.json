@@ -1,0 +1,30 @@
+{
+  "network": "studio-dev",
+  "chainId": 61997,
+  "owner": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+  "destination": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+  "totalAuthorizedGEN": "3",
+  "proofBoundary": "Native EVM receipts and balances; not intelligent-contract consensus",
+  "steps": {
+    "purchase-reserve": {
+      "hash": "0x27900fe2747f473b6be651582a4afe132fe00b9e204630633aec97abe5aa19d5",
+      "valueGEN": "2",
+      "evmReceiptStatus": "SUCCESS",
+      "destinationBeforeGEN": "0",
+      "destinationAfterGEN": "2",
+      "nativeIncreaseGEN": "2",
+      "verifiedObservedUTC": "2026-10-07T01:19:00.417Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x27900fe2747f473b6be651582a4afe132fe00b9e204630633aec97abe5aa19d5"
+    },
+    "fee-reserve": {
+      "hash": "0x4465286049b2227005c284e6a8a0c03b15259128536c782020a1c50c0b0e2c8e",
+      "valueGEN": "1",
+      "evmReceiptStatus": "SUCCESS",
+      "destinationBeforeGEN": "2",
+      "destinationAfterGEN": "3",
+      "nativeIncreaseGEN": "1",
+      "verifiedObservedUTC": "2026-10-07T01:19:09.772Z",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x4465286049b2227005c284e6a8a0c03b15259128536c782020a1c50c0b0e2c8e"
+    }
+  }
+}

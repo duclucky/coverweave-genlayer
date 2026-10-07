@@ -63,7 +63,8 @@ test('real SDK encodes project writes through selected wallet and separates fina
     let result;
     switch (request.method) {
       case 'eth_chainId': result = chainId; break;
-      case 'sim_getFeeConfig': result = { enabled: false, policy: { genPerTimeUnit: '0', storageUnitPrice: '0', receiptGasPrice: '0', timeUnitOverlayBps: '0' } }; break;
+      case 'sim_getFeeConfig': result = { enabled: true, policy: { genPerTimeUnit: '1', storageUnitPrice: '1', receiptGasPrice: '1', timeUnitOverlayBps: '0' } }; break;
+      case 'sim_estimateTransactionFees': result = { recommendedPreset: { distribution: { leaderTimeunitsAllocation:'100', validatorTimeunitsAllocation:'200', appealRounds:'0', executionBudgetPerRound:'250000000000000', executionConsumed:'0', totalMessageFees:'0', rotations:['3'], maxPriceGenPerTimeUnit:'2', storageFeeMaxGasPrice:'2', receiptFeeMaxGasPrice:'2' }, feeValue:'1000000000000000', messageAllocations:[] } }; break;
       case 'eth_getTransactionCount': result = '0x0'; break;
       case 'eth_estimateGas': result = '0x30d40'; break;
       case 'eth_gasPrice': result = '0x0'; break;
@@ -96,6 +97,7 @@ test('real SDK encodes project writes through selected wallet and separates fina
     assert.equal(input.sender.toLowerCase(), sender);
     assert.equal(input.recipient.toLowerCase(), recipient);
     assert.equal(input.userValue, command.method === 'open_bundle' ? 2n * 10n ** 18n : 0n);
+    assert.equal(BigInt(send.value), input.userValue + 1000000000000000n, 'measured fees must fund the signed EVM envelope');
     const wire = fromRlp(input.txCalldata, 'bytes');
     const call = abi.calldata.decode(wire[0]);
     assert.equal(call.get(''), command.method);
@@ -143,6 +145,7 @@ test('pending reference blocks a duplicate write and resumes using reads only', 
     let result;
     const fixtures = { eth_getTransactionCount: '0x0', eth_estimateGas: '0x30d40', eth_gasPrice: '0x0',
       sim_getFeeConfig: { enabled: false, policy: { genPerTimeUnit: '0', storageUnitPrice: '0', receiptGasPrice: '0', timeUnitOverlayBps: '0' } },
+      sim_estimateTransactionFees: { recommendedPreset: { distribution: { rotations:['3'] }, feeValue:'0', messageAllocations:[] } },
       eth_getTransactionReceipt: { transactionHash: hash, transactionIndex: '0x0', blockHash: hash,
         blockNumber: '0x1', from: sender, to: studioDevnet.consensusMainContract.address,
         cumulativeGasUsed: '0x0', gasUsed: '0x0', logs: [], logsBloom: '0x' + '00'.repeat(256), status: '0x1', type: '0x0' } };
@@ -204,4 +207,18 @@ test('actual SDK reads finalized canonical views, maps roles and all recovery st
   assert.equal(bundle.attempts[0].state, 'PURCHASED');
   assert.deepEqual((await adapter.listBundles()).map(x => x.id), ['canonical']);
   assert.ok(calls.includes('get_attempt'));
+});
+
+test('reverted wallet envelope is failed immediately on read-only resume, never indefinitely pending', async (t) => {
+ const originalFetch=globalThis.fetch;t.after(()=>{globalThis.fetch=originalFetch;});
+ let writes=0,reads=0;
+ const provider={async request(r){if(r.method==='eth_chainId')return chainId;if(r.method==='eth_accounts')return[sender];writes++;throw Error('No write allowed');}};
+ globalThis.fetch=async(_url,options)=>{
+  const r=JSON.parse(options.body);reads++;
+  const result=r.method==='eth_getTransactionReceipt'?{status:'0x0',transactionHash:hash}: {hash,from:sender,to:studioDevnet.consensusMainContract.address};
+  return new Response(JSON.stringify({jsonrpc:'2.0',id:r.id,result:projectRpcResult(r.method,result)}));
+ };
+ const states=[];
+ await assert.rejects(createSdkAdapter(config).resumeTransaction({address:sender,provider},hash,s=>states.push(s.stage)),/wallet transaction reverted/i);
+ assert.deepEqual(states,['failed']);assert.equal(writes,0);assert.ok(reads<=2);
 });

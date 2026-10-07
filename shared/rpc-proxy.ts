@@ -1,7 +1,15 @@
+import { abi } from 'genlayer-js';
+import { fromRlp, isAddress } from 'viem';
 const IC_RPC = 'https://studio-next.genlayer.com/api';
+const CONTRACT = '0xe4f0378799b47e7ae05f64d93dfe6590f68c5833';
 const methods = new Set(['eth_chainId', 'gen_call', 'eth_getTransactionByHash',
   'eth_getTransactionReceipt', 'eth_getTransactionCount', 'eth_estimateGas',
-  'eth_gasPrice', 'eth_blockNumber', 'eth_getBlockByNumber', 'sim_getFeeConfig']);
+  'eth_gasPrice', 'eth_blockNumber', 'eth_getBlockByNumber', 'sim_getFeeConfig', 'sim_estimateTransactionFees']);
+const writes = new Set(['open_bundle','offer_grant','ratify_bundle','review_bundle','refund_expired',
+  'consume_permit','expire_permit','withdraw_credit','close_bundle']);
+const distributionFields = ['leaderTimeunitsAllocation','validatorTimeunitsAllocation','appealRounds',
+  'executionBudgetPerRound','executionConsumed','totalMessageFees','maxPriceGenPerTimeUnit',
+  'storageFeeMaxGasPrice','receiptFeeMaxGasPrice'];
 type RecordValue = Record<string, unknown>;
 function record(value: unknown): RecordValue {
   return value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -17,6 +25,18 @@ export function allowedRpcMethod(method: string): boolean { return methods.has(m
 // Never forward a complete Studio receipt: it can contain private node configuration.
 export function projectRpcResult(method: string, value: unknown): unknown {
   if (value === null) return null;
+  if (method === 'sim_estimateTransactionFees') {
+    const preset = record(record(value).recommendedPreset);
+    const source = record(preset.distribution);
+    if (!['string','number'].includes(typeof preset.feeValue) || !/^\d+$/.test(String(preset.feeValue)) || !Array.isArray(source.rotations))
+      throw new Error('Public fee preset unavailable.');
+    return { recommendedPreset: { feeValue: String(preset.feeValue),
+      distribution: { ...scalars(source, distributionFields), rotations: source.rotations.map(item => {
+        if (!/^\d+$/.test(String(item))) throw new Error('Invalid public fee allocation.');
+        return String(item);
+      }) }, messageAllocations: Array.isArray(preset.messageAllocations) ? preset.messageAllocations.slice(0,32)
+        .map(item => scalars(item,['messageType','onAcceptance','parentIndex','recipient','callKey','budget','feeParams'])) : [] } };
+  }
   if (method === 'eth_getTransactionByHash') {
     const source = record(value);
     const projected = scalars(source, ['hash', 'status', 'result', 'from', 'to',
@@ -71,9 +91,29 @@ export async function forwardRpc(body: unknown, request: typeof fetch = fetch) {
   const envelope = { jsonrpc: '2.0', id, method: input.method, params: input.params };
   if (JSON.stringify(envelope).length > 65536) return failure(-32602, 'RPC request is too large.');
   try {
+    if (input.method === 'sim_estimateTransactionFees') {
+      const call = record(input.params[0]);
+      if (input.params.length !== 1 || call.type !== 'write' || typeof call.from !== 'string' || !isAddress(call.from) ||
+        typeof call.to !== 'string' || call.to.toLowerCase() !== CONTRACT || typeof call.data !== 'string')
+        return failure(-32602,'Only this contract may be profiled.');
+      const wire = fromRlp(call.data as `0x${string}`, 'bytes');
+      if (!Array.isArray(wire) || wire.length !== 2) return failure(-32602,'Invalid write profile.');
+      const decoded = abi.calldata.decode(wire[0] as Uint8Array) as Map<string,unknown>;
+      const method = decoded.get('');
+      if (typeof method !== 'string' || !writes.has(method) ||
+        BigInt(String(call.value ?? '0')) !== (method === 'open_bundle' ? 2n * 10n ** 18n : 0n))
+        return failure(-32602,'Invalid write profile or purchase value.');
+      const blockResponse = await request(IC_RPC,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({jsonrpc:'2.0',id,method:'eth_getBlockByNumber',params:['latest',false]}),signal:AbortSignal.timeout(25000)});
+      const block = record(record(await blockResponse.json()).result);
+      if (typeof block.timestamp !== 'string' || !/^0x[0-9a-f]+$/i.test(block.timestamp)) throw new Error('Chain time unavailable.');
+      // Simulation only. Client clocks, mocks and all other simulation overrides are discarded.
+      envelope.params = [{type:'write',from:call.from,to:CONTRACT,data:call.data,value:call.value ?? '0x0',
+        fees:call.fees,transaction_hash_variant:'latest-final',sim_config:{genvm_datetime:new Date(Number(BigInt(block.timestamp))*1000).toISOString()}}];
+    }
     const response = await request(IC_RPC, { method: 'POST',
       headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(envelope),
-      signal: AbortSignal.timeout(25000) });
+      signal: AbortSignal.timeout(input.method === 'sim_estimateTransactionFees' ? 55000 : 25000) });
     if (!response.ok) throw new Error('RPC unavailable');
     const upstream = record(await response.json());
     if (upstream.error) return failure(-32000, 'Studio Dev rejected this public RPC read.');

@@ -151,6 +151,15 @@ export function createSdkAdapter(config: AdapterConfig): ContractAdapter {
   async function confirm(hash: TransactionHash, onStatus: (state: TxStatus) => void) {
     let reportedAccepted = false;
     for (let attempt = 0; attempt < maxPolls; attempt++) {
+      let envelopeReverted = false;
+      try {
+        const envelope = await reader.request({ method: 'eth_getTransactionReceipt', params: [hash] }) as { status?: string } | null;
+        envelopeReverted = envelope?.status === '0x0';
+      } catch { /* An unindexed envelope is still pending; inspect consensus below. */ }
+      if (envelopeReverted) {
+        onStatus({stage:'failed',hash,message:'The wallet transaction reverted before contract execution. Refresh before trying again.'});
+        throw new Error('The wallet transaction reverted before contract execution. Refresh before trying again.');
+      }
       let state;
       let canceled = false;
       try {
@@ -246,8 +255,12 @@ export function createSdkAdapter(config: AdapterConfig): ContractAdapter {
       const writer = createClient({ chain: chainAt(endpoint), account: wallet.address, provider });
       let envelopeCompleted = false;
       try {
+        const fees = await writer.estimateTransactionFeesForWrite({address,functionName:command.method,args,
+          value:command.method === 'open_bundle' ? 2n * 10n ** 18n : 0n,
+          transactionHashVariant:TransactionHashVariant.LATEST_FINAL});
+        if (fees.feeValue > 10n ** 18n) throw new Error('The network fee quote exceeds the 1 GEN demo limit.');
         const hash = await writer.writeContract({ address, functionName: command.method, args,
-          value: command.method === "open_bundle" ? 2n * 10n ** 18n : 0n });
+          value: command.method === "open_bundle" ? 2n * 10n ** 18n : 0n,fees });
         envelopeCompleted = true;
         await confirm(transactionHash(hash), onStatus);
         outstanding.delete(wallet.address.toLowerCase());

@@ -1,0 +1,28 @@
+{
+  "project": "coverweave",
+  "network": "studio-dev",
+  "chainId": 61997,
+  "contractAddress": "0xe4F0378799b47e7AE05F64d93dFE6590F68C5833",
+  "browser": "Codex in-app browser",
+  "wallet": "OKX",
+  "buyer": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+  "bundleID": "cw-browser-complement-20261007-01",
+  "steps": {
+    "open_bundle-0x07b04c955d1cf3fb9d4ed8859be397d7ef1c20660baa99221d534634decda5a3": {
+      "method": "open_bundle",
+      "hash": "0x07b04c955d1cf3fb9d4ed8859be397d7ef1c20660baa99221d534634decda5a3",
+      "signingBoundary": "browser wallet, user-confirmed",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0x07b04c955d1cf3fb9d4ed8859be397d7ef1c20660baa99221d534634decda5a3",
+      "observedSubmittedUTC": "2026-10-07T01:21:05.428Z",
+      "status": "EVM_REVERTED",
+      "execution": "NOT_EXECUTED",
+      "knownReason": "FeeValueMustBeNonZero",
+      "buyerBalanceGEN": "3",
+      "nativeContractBalanceGEN": "0",
+      "bundleExists": false,
+      "observedVerifiedUTC": "2026-10-07T01:31:12.347Z",
+      "writesPerformed": 0
+    }
+  },
+  "peerSigningBoundary": "Issuer A/B actions signed by authorized scripts; buyer actions signed in browser by owner."
+}

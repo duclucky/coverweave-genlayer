@@ -28,17 +28,17 @@ Command: `npm run check`
 Observed final result: exit 0.
 
 ```text
-112 passed in 25.32s
-tooling node tests: 25 passed, 0 failed, 0 skipped
+112 passed in 22.57s
+tooling node tests: 26 passed, 0 failed, 0 skipped
 LOCAL ONLY: five simulated validators agree on the canonical coalition vector
-1 passed in 1.38s
-frontend node tests: 13 passed, 0 failed, 0 skipped
+1 passed in 1.32s
+frontend node tests: 14 passed, 0 failed, 0 skipped
 frontend component tests: 17 passed
 tsc --noEmit: success
 Vite 8.3.3 production build: completed
 ```
 
-There are 168 executed local cases. Tests include deterministic settlement
+There are 170 executed local cases. Tests include deterministic settlement
 invariants, independent semantic replay, malformed/extra output, all coalition
 consequences, non-penalizing retry, exact deadline boundaries with stale phase,
 wrong actor/entity/objective/network/policy bindings, isolation, duplicate
@@ -50,6 +50,21 @@ passed after EIP-1193 code 4001 was mapped to explicit account-access guidance.
 It proves that rejected access never presents a connected account or starts a write.
 
 ## Frontend integration verification
+
+The real-SDK fee regression first failed because the signed envelope omitted
+the profiler's fee deposit. The adapter now profiles the exact write with
+`estimateTransactionFeesForWrite` and supplies the resulting fees. The proxy
+binds profiling to the active contract, permits only its nine write names and
+exact 2-GEN/zero-GEN value, supplies canonical chain time, and returns only the
+recommended public fee preset. It never forwards a raw simulation receipt.
+A separate regression reproduced indefinite pending after a reverted EVM
+envelope, then passed after read-only confirmation recognized `status 0x0`.
+The compiled production-entry regression also passes with the pinned SDK.
+
+The current in-app browser blocks both localhost and loopback URLs with
+`ERR_BLOCKED_BY_CLIENT`. Earlier Chrome local canonical-read proof remains
+historical; this revision's in-app local browser check is not claimed as passed.
+Production browser verification remains separately required.
 
 Commands: `node --test frontend/tests/sdk-adapter.test.mjs` and
 `node --test tests/tooling/sdk-wallet-preflight.test.mjs`.
@@ -93,7 +108,7 @@ canonical credits, including an unexpected but valid settled vector.
 ## Four-source authority audit, 2026-10-07
 
 Sources cross-checked: the exact deployed `contracts/coverweave.py`, current
-168-case check output, safe Studio journal/canonical views, and README/spec/UI
+170-case check output, safe Studio journal/canonical views, and README/spec/UI
 claims. One recognized contract has nine writes and eight views. The deployed
 source hash and method count match; no replacement runtime or address is used.
 
