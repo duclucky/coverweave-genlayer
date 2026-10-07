@@ -1,0 +1,24 @@
+{
+  "network": "studio-dev",
+  "chainId": 61997,
+  "owner": "0xC495ef51618D03267A1f227aFe5b27B38c748272",
+  "destination": "0x4e776b88e79c4f82f4e01115dd52c43e0cec6034",
+  "totalAuthorizedGEN": "2",
+  "steps": {
+    "extra-recovery-reserve": {
+      "valueGEN": "2",
+      "ownerBeforeGEN": "35.282756183582839777",
+      "destinationBeforeGEN": "0.999527786499995122",
+      "estimatedFeeGEN": "0",
+      "status": "VERIFIED",
+      "hash": "0xd5f66ef8a1a0eb2fccc8dafebbcd0026a9fd382d82cf5f5901f98674bb7fbfc1",
+      "explorerURL": "https://explorer-studio-dev.genlayer.com/tx/0xd5f66ef8a1a0eb2fccc8dafebbcd0026a9fd382d82cf5f5901f98674bb7fbfc1",
+      "observedUTC": "2026-10-07T03:28:03.953Z",
+      "evmReceiptStatus": "SUCCESS",
+      "blockNumber": "0x0",
+      "destinationAfterGEN": "2.999527786499995122",
+      "nativeIncreaseGEN": "2",
+      "verifiedObservedUTC": "2026-10-07T03:28:13.459Z"
+    }
+  }
+}

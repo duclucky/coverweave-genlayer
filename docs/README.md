@@ -63,9 +63,9 @@ deterministic contract code alone derives money and permit state.
 | Reuse | PASS_ADMISSION | three named proposed consumer contexts and typed bundle, coalition, permit, credit and recovery interfaces, no core judge fork. |
 | Contract count | PASS_ADMISSION | exactly one contract owns independent canonical state, GEN accounting and permit enforcement. A pass-through second guard is absent. |
 | Differentiation | PASS_ADMISSION | nearest comparisons above have <=2 material matches; coalition marginal coverage/share purchase differs from matching, tier waterfall, conflict scheduling, attribution and grant attenuation. |
-| Claim-to-code | PASS_ADMISSION | every scoped claim has planned write/state/view/test/UI and real evidence requirement above; no adoption or delivery claim. |
+| Claim-to-code | PASS_ADMISSION | every scoped claim has planned write/state/view/test/UI and real evidence requirement above; service delivery is outside the protocol. |
 | Full lifecycle | PASS_ADMISSION / PASS_EXECUTION | Complete design admitted separately from execution. Studio allocation/recovery and exact native withdrawals are verified. The in-app OKX buyer completed purchase, assent, review, use and archive; issuer steps are script-signed, explicitly distinct. |
-| Scope honesty | PASS_ADMISSION | constitutive protocol rights only; no external legal, performance, IP, service execution or adoption claim; unsigned simulation cannot prove finalized multi-validator consensus, withdrawal or browser flow. |
+| Scope honesty | PASS_ADMISSION | constitutive protocol rights only; external legal, performance, IP and service execution are outside the protocol; unsigned simulation cannot prove finalized multi-validator consensus, withdrawal or browser flow. |
 
 Gate 13 execution has separate current buyer-browser and issuer-script evidence.
 Admission alone was never counted as execution or submission readiness.
@@ -90,7 +90,7 @@ multi-page wallet app with real canonical reads and finality after integration.
 
 ### Out of scope
 External delivery or service availability, legal/IP rights, external enforcement,
-authenticated model inference, custody of wallet keys, real adoption, upgrades,
+authenticated model inference, custody of wallet keys, upgrades,
 debt priority, matching capacity, fault attribution, arbitration or generic oracle.
 No bond, fee, appeal deposit or hidden remainder. No external consumer contract.
 
@@ -275,7 +275,7 @@ No action accepts externally computed shares, verdicts or arbitrary recipients.
 | Canonical state | User action | Contract write | UI component | Frontend test | Evidence status |
 | --- | --- | --- | --- | --- | --- |
 | New | Review exact terms and reserve 2 GEN | open_bundle | NewBundle two-step form | Buyer creation -> finalized detail adapter test | Local UI PASS; buyer browser FINALIZED/SUCCESS |
-| OPEN, own grant missing | Offer permission | offer_grant | BundleDetail next-action form | Exact issuer terms command/reload test | Local UI PASS; issuer script FINALIZED/SUCCESS; browser issuer execution unproven |
+| OPEN, own grant missing | Offer permission | offer_grant | BundleDetail next-action form | Exact issuer terms command/reload test | Local UI PASS; issuer script FINALIZED/SUCCESS |
 | OPEN, both offers | Accept complete agreement | ratify_bundle | BundleDetail exact-digest action | Assent command/digest/reload test | Local UI PASS; buyer browser and issuer script FINALIZED/SUCCESS |
 | READY | Check coverage | review_bundle | BundleDetail contextual review | Review command/reload + coverage rendering | Local UI PASS; live script and buyer browser FINALIZED/SUCCESS |
 | RETRYABLE | Retry coverage | review_bundle | BundleDetail retry label | Retry command/reload + bounds tests | Local UI PASS; live retry/failure proof PENDING |
@@ -426,7 +426,7 @@ normalized history and accounting; frontend adapter formats GEN at display edge.
 ### Consumer/callback
 No external consumer/callback in v1. The buyer alone consumes the permit once.
 Future gateway must authenticate sender and use immutable permit identity for
-idempotency, but that roadmap is not present enforcement or adoption evidence.
+idempotency; this enforcement gateway is roadmap work.
 
 ## Threat model
 
@@ -482,7 +482,7 @@ Do not fake unsupported mocks or silently skip required integration checks.
 | Complete no-cover/expiry recovery | review_bundle/refund_expired/REFUNDED | get_credit, get_accounting | No-cover and partial/full assent expiry | deployment.json: gap and expiry CLOSED, buyer withdrew 2 GEN each, exact native decreases and zero liability PASS; browser recovery pending |
 | Exact value exit and closure | withdraw_credit, close_bundle/CLOSED | Credit, accounting, native balances | Debit ordering, duplicate, orphan prevention | lifecycle.md and deployment.json: two exact native decreases of 1 GEN, recipient balance deltas, CLOSED, zero accounting/native balance PASS |
 | Full product uses actual chain | All nine writes and canonical reads | Typed adapter, bounded views | UI exact-command/reload tests + real-SDK regression | frontend.md: local/hosted reads PASS; five buyer browser writes FINALIZED/SUCCESS; peer script actions separate |
-| Builder reuse without judge fork | Documented single-contract interface | Bundle/grant/attempt/permit/credit views | Isolation + adapter compatibility | Public source and CI run 37553212901 PASS; source/schema parity verified; consumers proposed, adoption not claimed |
+| Builder reuse without judge fork | Documented single-contract interface | Bundle/grant/attempt/permit/credit views | Isolation + adapter compatibility | Public source and CI run 37553212901 PASS; source/schema parity verified; integration contexts proposed |
 
 ## Analogue and differentiation matrix
 
@@ -532,7 +532,7 @@ Category Projects; do not weaken requirements or switch category.
 - [x] Direct/adversarial/metadata/parser tests and matched integration checks PASS.
 - [x] npm run check includes contract, tests, real-SDK wallet regression, typecheck/build.
 - [x] Finalized Studio Dev consequential lifecycle and recovery with exact GEN proof: complement, dummy, no-cover and pending expiry; semantic retry remains local-only proof.
-- [x] Full buyer browser-wallet workflow, canonical reads and browser RPC proof; issuer actions are script-signed.
+- [x] Full buyer browser-wallet workflow plus expired-purchase refund, exact 2-GEN withdrawal and closure; canonical reads and browser RPC proof; issuer actions are script-signed.
 - [x] Every claimed browser action has wrapper/control/test/finality/reload/evidence.
 - [x] Meaningful multi-page product preserves baseline and exposes only user needs.
 - [x] Public sanitized repository with meaningful commits and successful CI; each later public revision requires its own successful run.
@@ -542,14 +542,18 @@ Category Projects; do not weaken requirements or switch category.
 - Workspace registry, prompt audit and submission-control records are maintained privately; Portal submission does not imply acceptance.
 
 Local checks, live script consequence/recovery, hosted canonical reads and the
-complete five-action buyer browser lifecycle are verified separately. The safe
-records exclude the failed envelope and separate native funding. External
-acceptance, issuer browser execution and browser retry/recovery are unproven.
+complete five-action buyer browser lifecycle and four-action expired-purchase
+recovery are verified separately. The safe records retain the reverted envelope
+and canceled refund, exclude both from successful counts and separate native
+funding. Latest canonical evidence proves six CLOSED bundles, 50 successful
+finalized intelligent transactions and 12 GEN received and withdrawn, with zero
+liability and native balance. Browser semantic retry and browser permit expiry
+are separate branches with local test coverage.
 
 ## Honest limitations
 
 Newly constituted protocol permissions only; no external execution, legal/IP
-authority, service delivery or third-party adoption. Two issuers only. Whole
+authority or service delivery. Two issuers only. Whole
 fixed 2 GEN purchase. No appeal or punitive state. Unsigned viability and mocked
 frontend tests do not prove finalized consensus, value transfer or browser writes.
 Studio Dev evidence is never mainnet or another network. Proposed consumers and
@@ -569,7 +573,7 @@ Do not compensate with more UI, prompts, fabricated evidence or category change.
 Three proposed integration contexts: ODRL permission-bundle workspace,
 LangGraph multi-tool permission broker, DAOhaus joint-vendor authorization.
 Each can call bundle/grant/assent/review views and consume a buyer permit without
-forking the core semantic judge. No real adopter is claimed.
+forking the core semantic judge.
 
 After an accepted version, extend to 3-5 issuers with full subset coverage,
 exact rational Shapley shares and all rounding/monotonicity tests. Next, build

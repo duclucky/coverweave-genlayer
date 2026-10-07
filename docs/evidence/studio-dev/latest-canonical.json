@@ -1,0 +1,17 @@
+{
+  "network": "studio-dev",
+  "chainId": 61997,
+  "contractAddress": "0xe4F0378799b47e7AE05F64d93dFE6590F68C5833",
+  "accounting": {
+    "bundle_count": 6,
+    "credits_gen": "0",
+    "liability_gen": "0",
+    "locked_gen": "0",
+    "received_gen": "12",
+    "withdrawn_gen": "12"
+  },
+  "nativeContractBalanceGEN": "0",
+  "sourceParityVerified": true,
+  "observedUTC": "2026-10-07T07:26:30.177Z",
+  "writesPerformed": 0
+}

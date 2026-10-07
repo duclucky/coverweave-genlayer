@@ -47,9 +47,8 @@ entry continues to block broadcasting. The app design was preserved.
 Chrome detected both MetaMask and OKX in the centered wallet dialog. No provider
 is auto-selected. Local real-SDK adapter tests cover all nine writes and a 2-GEN
 purchase with intercepted provider I/O. They do not prove actual wallet signing.
-The finalized Studio lifecycle is script-signed evidence. Browser-wallet lifecycle
-remains **PENDING_REAL_EVIDENCE**, so Gate 13 execution and submission readiness
-are not claimed. No external adoption is claimed.
+The finalized Studio lifecycle in this initial observation was script-signed
+evidence. The later buyer browser lifecycle and recovery are documented below.
 
 On 2026-10-07 the current Chrome profile listed OKX only. Its own-app connection
 request rejected with EIP-1193 code 4001; the provider returned no account. This
@@ -115,8 +114,8 @@ withdrawals finalized successfully with exact 1-GEN native contract-balance
 decreases. Global accounting then showed 10 GEN received and withdrawn across
 five bundles, zero liability and zero native balance. Buyer archive finalized at
 2026-10-07T02:42:20.301Z; the actual UI displayed Archived and no further action.
-The complete five-action buyer browser lifecycle is proved. Browser issuer
-actions, browser recovery/retry and external usage are not claimed as executed.
+The complete five-action buyer browser lifecycle is proved. The additional
+expiry-recovery evidence below extends this observation with four more actions.
 
 The browser signing revision was `07a5a9f7351bc0e54ccdc16fb86bcb3c999483e6`,
 production deployment `dpl_DewbKxuEvmnyR1i1bTWgxJWprbaR` READY. Its CI run
@@ -124,6 +123,30 @@ production deployment `dpl_DewbKxuEvmnyR1i1bTWgxJWprbaR` READY. Its CI run
 was SUCCESS. Later documentation revisions require their own successful CI.
 The final safe [buyer journal](browser-wallet.json), [issuer journal](browser-peers.json)
 and [global read](final-canonical.json) contain the projected verification data.
+
+## Additional buyer browser recovery, 2026-10-07
+
+The same OKX buyer completed purchase, Recover purchase, Withdraw my GEN and
+Archive agreement for `cw-browser-expiry-20261007-01`. Every action was prepared
+by the frontend and signed by the human in the extension, then finalized
+successfully and reloaded canonical state. The actual review deadline elapsed
+before refund. Withdrawal decreased the native contract balance exactly 2 GEN;
+the buyer's net increase was 1.999873694249999177 GEN after fees. Final state is
+CLOSED with zero credits, liability and native balance.
+
+The first refund `0xaba7e26d4d9434d05d364e6f0c52857f1b54781d46a59a0b82edfa820df928a0`
+was CANCELED / NO_MAJORITY with zero consensus rounds and unchanged accounting.
+It is retained separately. After terminal cancellation and fresh canonical reads,
+one retry succeeded. This proves recovery from a canceled wallet transaction;
+it does not prove semantic retry after an inconclusive validator judgment.
+The cause of that cancellation was not established. No code change was needed
+for the successful retry and recovery.
+
+Safe [recovery journal](browser-recovery.json), [separate native funding](browser-recovery-funding.json)
+and [latest canonical read](latest-canonical.json) prove six CLOSED bundles,
+50 successful finalized intelligent transactions and 12 GEN received and
+withdrawn. Semantic review retry and unused-permit expiry are separate branches
+with local test coverage.
 Commands used read-only receipt/view inspectors; they performed zero writes.
 
 During refresh, Workspace showed one explicit public-RPC read error. The UI

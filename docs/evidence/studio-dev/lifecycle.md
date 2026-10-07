@@ -117,8 +117,8 @@ it is an observation time, not a transaction's server finalization time.
 ## Proof boundaries
 
 This lifecycle was signed by scripts using authorized existing EOAs. It does not
-prove a browser-wallet write. Browser signing, hosted reads and external adoption
-are separate evidence items. The local negative tests cover all nine write methods,
+prove a browser-wallet write. Browser signing and hosted reads are separate
+evidence items. The local negative tests cover all nine write methods,
 temporal boundaries, retry and invalid semantic output; those local cases are
 not additional live Studio transactions. Gap/refund and pending expiry now have
 the separate real transactions documented above. No external gateway currently
@@ -146,6 +146,52 @@ There are 46 distinct FINALIZED/SUCCESS intelligent transactions across both
 journals and the existing deployment journal. The reverted fee envelope and
 two native funding transfers are excluded from that count.
 
-Browser issuer signing and browser retry/recovery branches remain unproven.
+The additional buyer browser recovery is documented below.
 The actual browser purchase/read/finality paths are now proved; previous pending
 statements above describe the earlier evidence collection stage.
+
+## Additional in-app expired-purchase recovery
+
+Bundle `cw-browser-expiry-20261007-01` was purchased for 2 GEN with the same
+OKX buyer. No issuer offers or assents were submitted. Its real review deadline
+was 2026-10-07 11:04 UTC+7. After that time, the frontend prepared the refund,
+buyer withdrawal and archive; the human signed each in OKX.
+
+| Browser action | Transaction | Finalized canonical result |
+| --- | --- | --- |
+| Purchase 2 GEN | `0xbac79a7e09f97c06ff2ef43e0ed3ac4c920a77be40be0abfeb402b6cd9a83511` | OPEN, 2 GEN locked |
+| Recover purchase | `0xc7346bdfdec74ac27ed2934b4b5a8ee5198f41f9e8788756c1d40c2691df605e` | REFUNDED, buyer credit 2 GEN |
+| Withdraw my GEN | `0xaa760c84aba73bb8e595cc6bbea57681f732f1cad0dbc8d9db20c902977177f6` | Exact native decrease 2 GEN; credit and liability 0 GEN |
+| Archive agreement | `0x4bb9b0adda79ee10b4a5fe98d5be10a32b1dabfc689bc276190a0c4c7ce051f4` | CLOSED, received=withdrawn=2 GEN |
+
+All four transactions are FINALIZED/SUCCESS. Archive finalized at
+2026-10-07T07:25:48.780Z. Before withdrawal the contract held 2 GEN and the
+buyer held 0.999370521499993476 GEN; after withdrawal the contract held 0 GEN
+and the buyer held 2.999244215749992653 GEN. The net increase of
+1.999873694249999177 GEN accounts for the network fee. These values were read
+independently of the internal credit ledger.
+
+The first refund hash
+`0xaba7e26d4d9434d05d364e6f0c52857f1b54781d46a59a0b82edfa820df928a0`
+was CANCELED / NO_MAJORITY. It had zero consensus rounds; canonical state
+remained OPEN with 2 GEN locked. Its cause is not established. After that terminal
+status and fresh state reads, one browser retry finalized successfully. The
+canceled transaction is retained and excluded from successful counts.
+
+Read-only commands:
+`node scratch/extra-browser-proof.mjs <bundleID> <method> <UI hash> <buyer>`;
+`node scratch/final-canonical-read.mjs`; `node scratch/public-browser-recovery.mjs`.
+The private verification helpers perform zero writes. The sanitized durable
+outputs are the [recovery journal](browser-recovery.json) and
+[latest canonical read](latest-canonical.json).
+
+The final read at 2026-10-07T07:26:30.177Z proves six CLOSED bundles,
+received=withdrawn=12 GEN, locked=credits=liability=native balance=0 GEN and
+deployed source parity. There are 50 distinct successful finalized intelligent
+transactions. The canceled refund, earlier reverted purchase and three native
+funding transfers are excluded. The [additional native funding](browser-recovery-funding.json)
+was 2 GEN from the authorized owner to the browser buyer.
+
+Expired-purchase browser recovery and recovery from a canceled wallet transaction
+are now proved. Semantic review retry and unused-permit expiry have local test
+coverage. These additional evidence items do not change the Portal submission.

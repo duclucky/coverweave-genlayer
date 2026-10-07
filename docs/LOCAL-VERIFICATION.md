@@ -1,7 +1,7 @@
 # Local verification, updated 2026-10-07
 
 This file records local evidence only. Live Studio evidence is recorded separately
-under `evidence/studio-dev/`. Browser-wallet signing remains separately unproven.
+under `evidence/studio-dev/`, including the separate buyer wallet journals.
 
 ## Contract and toolchain
 
@@ -134,6 +134,8 @@ Browser read proof and script-signed network writes remain distinct. All nine UI
 actions have wrapper/control/test/finality/reload paths. Actual in-app OKX buyer
 purchase, assent, review, use and archive each finalized successfully and reloaded
 canonical state; issuer steps are explicitly script-signed. The browser journal
-excludes the earlier reverted envelope. Five bundles are CLOSED, with 10 GEN
-received/withdrawn and zero liability/native balance. Browser issuer signing,
-browser retry/recovery and external usage remain unproven, without those claims.
+excludes the earlier reverted envelope. The additional expired-purchase browser
+recovery journal proves refund, an exact 2 GEN native withdrawal and closure.
+The latest canonical snapshot records six CLOSED bundles, 12 GEN received and
+withdrawn, and zero liability/native balance. These network observations are
+separate from the 170 local cases recorded above.

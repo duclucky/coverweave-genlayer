@@ -249,8 +249,8 @@
     "writesPerformed": 0
   },
   "limitations": [
-    "Issuer offers, issuer assents and issuer withdrawals were script-signed, not browser signed.",
-    "Browser retry, expired-purchase recovery and permit-expiry branches are not live browser proof.",
+    "Issuer offers, issuer assents and issuer withdrawals are recorded in the separate script-signed peer journal.",
+    "Additional expired-purchase recovery and canceled-transaction retry are recorded in browser-recovery.json; semantic review retry and unused-permit expiry are separate branches.",
     "Intermediate canonical and native balance snapshots may differ during indexing; exact native decreases are proved independently per withdrawal."
   ]
 }
