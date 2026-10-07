@@ -28,23 +28,26 @@ Command: `npm run check`
 Observed final result: exit 0.
 
 ```text
-112 passed in 22.09s
+112 passed in 25.32s
 tooling node tests: 25 passed, 0 failed, 0 skipped
 LOCAL ONLY: five simulated validators agree on the canonical coalition vector
-1 passed in 1.28s
+1 passed in 1.38s
 frontend node tests: 13 passed, 0 failed, 0 skipped
-frontend component tests: 16 passed
+frontend component tests: 17 passed
 tsc --noEmit: success
 Vite 8.3.3 production build: completed
 ```
 
-There are 167 executed local cases. Tests include deterministic settlement
+There are 168 executed local cases. Tests include deterministic settlement
 invariants, independent semantic replay, malformed/extra output, all coalition
 consequences, non-penalizing retry, exact deadline boundaries with stale phase,
 wrong actor/entity/objective/network/policy bindings, isolation, duplicate
 writes, recovery, perpetual credit withdrawal, payable metadata and zero liability.
 UI fixture tests prove wrappers, contextual controls and finalization reload
 behavior only; they are not evidence of a real browser transaction.
+The provider-rejection regression first failed on missing recovery feedback, then
+passed after EIP-1193 code 4001 was mapped to explicit account-access guidance.
+It proves that rejected access never presents a connected account or starts a write.
 
 ## Frontend integration verification
 

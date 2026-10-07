@@ -158,7 +158,9 @@ function ProductProvider({
       setShowPicker(false);
     } catch (error) {
       setWalletError(
-        error instanceof Error
+        error !== null && typeof error === "object" && "code" in error && error.code === 4001
+          ? "The wallet rejected this connection. Open your selected wallet and approve account access, then try again."
+          : error instanceof Error
           ? error.message
           : "Wallet connection did not complete. Check the selected wallet and try again.",
       );

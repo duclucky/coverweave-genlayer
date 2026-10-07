@@ -104,6 +104,20 @@ afterEach(() => {
 });
 
 describe("role journey and adapter boundary", () => {
+  it("explains a rejected provider account request without presenting a connected account", async () => {
+    let prepared = false;
+    const h = harness(fixture(), buyer, "/account", {
+      async prepareWallet() { prepared = true; },
+    });
+    const provider = (window as unknown as { okxwallet: { request: () => Promise<unknown> } }).okxwallet;
+    provider.request = async () => { throw { code: 4001, message: "Untrusted provider detail" }; };
+    await h.user.click(within(screen.getByRole("banner")).getByRole("button", { name: "Connect wallet", exact: true }));
+    await h.user.click(screen.getByRole("button", { name: "OKX Wallet", exact: true }));
+    expect(await screen.findByText("The wallet rejected this connection. Open your selected wallet and approve account access, then try again.")).toBeTruthy();
+    expect(screen.queryByText("Untrusted provider detail")).toBeNull();
+    expect(prepared).toBe(false);
+    expect(h.writes).toEqual([]);
+  });
   it("prepares the chosen wallet account before presenting it as connected", async () => {
     let prepared = "";
     const h = harness(fixture(), buyer, "/account", {

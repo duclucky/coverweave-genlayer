@@ -19,7 +19,10 @@ for (const [step, record] of Object.entries(journal.steps)) {
   assertFinalizedSuccess(payload.result);
   const times = networkTimes(payload.result);
   if (!times.networkAcceptedAt || !times.networkFinalizedAt) throw new Error('Server consensus timestamps missing: ' + step);
-  Object.assign(record, times, { timestampSource: 'consensus_history monitoring (Unix seconds)' });
+  if (record.execution === 'ERROR' && record.status !== 'FINALIZED')
+    record.intermediateExecutionObservation = { status: record.status, execution: 'ERROR', observedUTC: record.lastObservedUTC };
+  Object.assign(record, times, { status: 'FINALIZED', execution: 'SUCCESS',
+    timestampSource: 'consensus_history monitoring (Unix seconds)' });
   console.log(JSON.stringify({ step, hash: record.hash, status: 'FINALIZED', execution: 'SUCCESS', ...times }));
 }
 saveJournal(path, journal);

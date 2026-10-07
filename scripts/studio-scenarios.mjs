@@ -1,8 +1,8 @@
 // Bounded demonstrations; expected vectors are assertions, never contract inputs.
 const scenarios = {
   dummy: {
-    goal: 'Read the registered record.',
-    terms: ['The holder may read the registered record.', 'The holder may export a saved copy of the registered record.'],
+    goal: 'Analyze AND export the registered record.',
+    terms: ['The holder may analyze and export the registered record.', 'The holder may change the dashboard background color.'],
     expectedClasses: ['COMPLETE', 'INCOMPLETE', 'COMPLETE'],
   },
   gap: {
