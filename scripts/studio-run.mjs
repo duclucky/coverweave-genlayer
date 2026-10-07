@@ -11,9 +11,13 @@ import { authorizedAccounts, studioClient, projectRoot, icRpc, explorer } from '
 import { readJournal, saveJournal, recordBroadcast } from './studio-journal.mjs';
 import { receiptState, assertFinalizedSuccess } from './receipt.mjs';
 import { quoteStudioWrite } from './studio-quote.mjs';
+import { prepareScenario, recoveryActions } from './studio-scenarios.mjs';
 
 const mode = process.argv[2] || 'inspect';
+const scenario = process.argv[3];
 if (!['inspect', 'deploy', 'lifecycle'].includes(mode)) throw new Error('Use inspect, deploy or lifecycle.');
+if (scenario && (mode !== 'lifecycle' || !['dummy', 'gap', 'expiry'].includes(scenario)))
+  throw new Error('Only lifecycle dummy/gap/expiry are supported.');
 const source = readFileSync(resolve(projectRoot, 'contracts/coverweave.py'), 'utf8');
 const runner = JSON.parse(source.split(/\r?\n/)[1].slice(2)).Depends;
 const commit = execFileSync('git', ['log', '-1', '--format=%H', '--', 'contracts/coverweave.py'], { cwd: projectRoot, encoding: 'utf8' }).trim();
@@ -223,12 +227,70 @@ async function lifecycle() {
   if (journal.demo.finalBundle.status !== 'CLOSED' || journal.demo.finalContractBalanceGEN !== '0') throw new Error('Zero-liability closure/native balance not proved.');
   console.log(JSON.stringify({ lifecycle: 'CLOSED', accounting: journal.demo.finalAccounting, nativeContractBalanceGEN: '0' }));
 }
+async function additionalLifecycle(name) {
+  if (!journal.contractAddress || !journal.sourceParityVerified) throw new Error('Verified deployment required first.');
+  const latest = await read.request({ method: 'eth_getBlockByNumber', params: ['latest', false] });
+  const d = prepareScenario(journal, name, Number(BigInt(latest.timestamp)));
+  save();
+  const id = d.id;
+  const run = (key, role, method, args, gen = 0n) => write(name + '-' + key, role, method, args, id, gen);
+  if (d.finalBundle?.status === 'CLOSED') {
+    const bundle = await view('get_bundle', [id]);
+    const accounting = await view('get_accounting', [id]);
+    if (bundle.status !== 'CLOSED' || accounting.liability_gen !== '0') throw new Error('Closed scenario canonical state changed.');
+    console.log(JSON.stringify({ scenario: name, lifecycle: 'CLOSED', recovered: true, writesPerformed: 0, accounting })); return;
+  }
+  await run('open', 'buyer', 'open_bundle', [id, d.goal,
+    new CalldataAddress(hexToBytes(accounts.issuerA.address)), new CalldataAddress(hexToBytes(accounts.issuerB.address)),
+    d.offerDeadline, d.reviewDeadline, d.useDeadline], 2n);
+  if (name === 'expiry') {
+    const pending = await view('get_bundle', [id]);
+    if (pending.status === 'OPEN') {
+      console.log(JSON.stringify({ scenario: name, waitingForReviewDeadline: d.reviewDeadline, valueGEN: '2' }));
+      for (let count = 0; ; count++) {
+        const block = await read.request({ method: 'eth_getBlockByNumber', params: ['latest', false] });
+        if (BigInt(block.timestamp) >= BigInt(d.reviewDeadline)) break;
+        if (count >= 90) throw new Error('Expiry still pending; rerun only this saved entity.');
+        await new Promise(resolve => setTimeout(resolve, 3000));
+      }
+      await run('refund', 'buyer', 'refund_expired', [id]);
+    }
+  } else {
+    for (const [index, role] of ['issuerA', 'issuerB'].entries())
+      await run('offer-' + role, role, 'offer_grant', [id, d.terms[index]]);
+    const bundle = await view('get_bundle', [id]);
+    for (const role of ['buyer', 'issuerA', 'issuerB'])
+      await run('ratify-' + role, role, 'ratify_bundle', [id, bundle.definition_digest]);
+    const current = await view('get_bundle', [id]);
+    if (current.status === 'RETRYABLE') throw new Error('Retryable judgment requires source/schema diagnosis; no automatic re-review.');
+    if (current.status === 'READY') await run('review-' + current.attempt_count, 'buyer', 'review_bundle', [id]);
+    const judged = await view('get_bundle', [id]);
+    if (!['PURCHASED', 'REFUNDED'].includes(judged.status)) throw new Error('Judgment is not settled; diagnose before retry or expired recovery.');
+    d.attempt = await view('get_attempt', [id, judged.attempt_count - 1]);
+    d.expectedVectorVerified = JSON.stringify(d.attempt.classes) === JSON.stringify(d.expectedClasses);
+    save();
+    // Always recover actual settled value, even if semantic output differs from the test expectation.
+  }
+  const bundle = await view('get_bundle', [id]);
+  const credits = {};
+  for (const role of ['buyer', 'issuerA', 'issuerB'])
+    credits[role] = (await view('get_credit', [id, new CalldataAddress(hexToBytes(accounts[role].address))])).credit_gen;
+  for (const action of recoveryActions(bundle, credits))
+    await run(action.method + '-' + action.role, action.role, action.method, [id]);
+  d.finalAccounting = await view('get_accounting', [id]);
+  d.finalBundle = await view('get_bundle', [id]);
+  d.finalContractBalanceGEN = formatUnits(await balance(journal.contractAddress), 18); save();
+  if (d.finalBundle.status !== 'CLOSED' || d.finalAccounting.liability_gen !== '0' || d.finalContractBalanceGEN !== '0')
+    throw new Error('Zero accounting/native closure not proved.');
+  console.log(JSON.stringify({ scenario: name, lifecycle: 'CLOSED', accounting: d.finalAccounting,
+    nativeContractBalanceGEN: '0', expectedVectorVerified: d.expectedVectorVerified ?? null }));
+}
 try {
   if (await read.getChainId() !== 61997) throw new Error('Wrong network');
   if (mode === 'inspect') console.log(JSON.stringify({ ...identity, contractAddress: journal.contractAddress || null,
     recordedSteps: Object.keys(journal.steps), writesPerformed: 0 }, null, 2));
   if (mode === 'deploy') await deploy();
-  if (mode === 'lifecycle') await lifecycle();
+  if (mode === 'lifecycle') await (scenario ? additionalLifecycle(scenario) : lifecycle());
 } catch (error) {
   // All custom messages are bounded; SDK/RPC errors are reduced to a generic label.
   console.error(error?.constructor === Error ? error.message : 'Studio Dev operation failed; inspect the saved journal before retrying.');

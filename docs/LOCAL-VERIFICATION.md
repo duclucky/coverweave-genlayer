@@ -1,4 +1,4 @@
-# Local verification, 2026-10-06
+# Local verification, updated 2026-10-07
 
 This file records local evidence only. Live Studio evidence is recorded separately
 under `evidence/studio-dev/`. Browser-wallet signing remains separately unproven.
@@ -28,17 +28,17 @@ Command: `npm run check`
 Observed final result: exit 0.
 
 ```text
-112 passed in 22.73s
-tooling node tests: 23 passed, 0 failed, 0 skipped
+112 passed in 22.09s
+tooling node tests: 25 passed, 0 failed, 0 skipped
 LOCAL ONLY: five simulated validators agree on the canonical coalition vector
-1 passed in 4.89s
+1 passed in 1.28s
 frontend node tests: 13 passed, 0 failed, 0 skipped
 frontend component tests: 16 passed
 tsc --noEmit: success
 Vite 8.3.3 production build: completed
 ```
 
-There are 165 executed local cases. Tests include deterministic settlement
+There are 167 executed local cases. Tests include deterministic settlement
 invariants, independent semantic replay, malformed/extra output, all coalition
 consequences, non-penalizing retry, exact deadline boundaries with stale phase,
 wrong actor/entity/objective/network/policy bindings, isolation, duplicate
@@ -80,3 +80,9 @@ success stub; those 9 pass. A tenth test covers the current Studio leader/vote
 receipt distinction. Nonpayable write guards likewise had 8 meaningful
 failing cases before their implementation. Successful accepted/finalized status
 is always checked separately from successful contract execution.
+
+Standalone command: `.venv\Scripts\gltest.exe tests/ --tb=short -q`.
+Observed after the loopback-default/owned-fixture repair: `113 passed in 27.05s`.
+No Studio RPC writes are used by local tests. The scenario recovery tests also
+prove original IDs/deadlines survive a rerun and recovery follows actual
+canonical credits, including an unexpected but valid settled vector.

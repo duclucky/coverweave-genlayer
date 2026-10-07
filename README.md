@@ -60,15 +60,17 @@ canonical agreement reads through the deployed same-origin API proxy.
   CLOSED and zero liability/native balance. All accepted/finalized timestamps are
   server consensus timestamps; all source and transaction references are in the
   [safe journal](docs/evidence/studio-dev/deployment.json).
-- [Local verification](docs/LOCAL-VERIFICATION.md): 165 passing cases, zero skipped;
-  104 direct contract tests, eight Python tooling tests, 23 node tooling tests,
+- [Local verification](docs/LOCAL-VERIFICATION.md): 167 passing cases, zero skipped;
+  104 direct contract tests, eight Python tooling tests, 25 node tooling tests,
   one local five-validator integration case, 13 frontend adapter/wallet cases
   and 16 UI cases. GenVM lint recognizes one class and 17 methods; TypeScript
   and production build pass.
 - Chrome local and production frontends read the actual archived agreement, its
   grants and coverage through the same-origin proxy. This is browser **read** proof.
   Actual browser-wallet **signing** remains pending; script signing is separate.
-- Public CI and external adoption remain pending.
+- [Public CI passed](https://github.com/duclucky/coverweave-genlayer/actions/runs/37491951797)
+  at commit `f27199c`; later revisions require their own successful run.
+  External adoption remains pending.
 
 ## Run locally
 

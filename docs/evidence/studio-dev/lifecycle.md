@@ -9,6 +9,7 @@ Commands: `node scripts/studio-run.mjs deploy`,
 `node scripts/studio-run.mjs lifecycle`, `node scripts/studio-enrich.mjs`.
 
 Observed: 12 recorded transactions FINALIZED with execution SUCCESS. The safe
+receipt summary is **Status: FINALIZED; Result: SUCCESS** for all 12 transactions.
 [deployment journal](deployment.json) binds the exact source commit, SHA-256,
 runner/API, addresses, public actors, transaction links, server accepted/finalized
 timestamps, and canonical before/after views. Source parity and all 17 deployed

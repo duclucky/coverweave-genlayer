@@ -116,3 +116,11 @@ Vercel transpiles the API and shared TypeScript files to JavaScript. Standard
 at runtime. The compiled-entry regression proves the real emitted entry loads,
 forwards only public reads and rejects broadcasting. Production canonical reads
 were subsequently verified; see `evidence/studio-dev/frontend.md`.
+
+The default `gltest` network is loopback `localnet`, not Studio Dev. Standalone
+`gltest tests/` now owns a bounded local simulator fixture when the npm runner
+has not started it. The fixture rejects non-loopback configuration before any
+write, disables hosted schema fallbacks, and stops only the process it started.
+The original standalone run failed safely before its first simulated funding
+request (112 passed, one failed); after this repair all 113 Python tests pass.
+Explicit Studio deployment scripts and the network evidence remain separate.
